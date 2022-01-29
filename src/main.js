@@ -5,7 +5,6 @@ import store from './store'
 // import 'bootstrap'
 import 'admin-lte'
 
-
 import '../src/assets/scss/app.scss'
 
 Vue.config.productionTip = false

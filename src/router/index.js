@@ -1,8 +1,9 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import store from '../store'
 import Home from '../views/website/Home.vue'
-import Manage from "../views/backend/agent/Manage";
-import Create from "../views/backend/agent/Create";
+import Manage from "../views/backend/agent/Manage"
+import Create from "../views/backend/agent/Create"
 
 Vue.use(VueRouter)
 
@@ -28,23 +29,35 @@ const routes = [
         path: '/admin/dashboard',
         name: 'admin-dashboard',
         component: () => import('../views/backend/Dashboard'),
+        meta:{
+          requiresAuth: true
+        }
       },
       {
         path: '/admin/agents',
         name: 'agents',
         component: Manage,
+        meta:{
+          requiresAuth: true
+        }
       },
       {
         path: '/admin/add-agent',
         name: 'agent-add',
         component: Create,
+        meta:{
+          requiresAuth: true
+        }
       },
     ]
   },
   {
     path: '/login',
     name: 'login',
-    component: () => import(/* webpackChunkName: "about" */ '../views/backend/Login.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../views/backend/Login.vue'),
+    meta:{
+      visited: true
+    }
   },
 ]
 
@@ -52,6 +65,24 @@ const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
   routes
+})
+
+router.beforeEach((to, from, next) => {
+  if (to.matched.some(record => record.meta.requiresAuth)) {
+    if (!store.getters.loggedIn) {
+      next({name: 'login'})
+    }else{
+      next()
+    }
+  }else if (to.matched.some(record => record.meta.visited)) {
+    if (store.getters.loggedIn) {
+      next({name: 'admin-dashboard'})
+    }else{
+      next()
+    }
+  }else{
+    next()
+  }
 })
 
 export default router
