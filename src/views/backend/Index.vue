@@ -3,9 +3,9 @@
     <div class="wrapper">
 
       <!-- Preloader -->
-      <div class="preloader flex-column justify-content-center align-items-center">
+      <!-- <div class="preloader flex-column justify-content-center align-items-center">
         <img class="animation__shake" src="../../assets/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
-      </div>
+      </div> -->
 
       <!-- Navbar -->
       <nav class="main-header navbar navbar-expand navbar-white navbar-light">
@@ -195,7 +195,7 @@
                 </router-link>
               </li>
                <li class="nav-item menu-open">
-                <router-link to="/logout" class="nav-link" active-class="active">
+                <router-link :to="{name:'logout'}" class="nav-link" active-class="active">
                   <i class="nav-icon fas fa-sign-out-alt"></i>
                   <p>Logout</p>
                 </router-link>

@@ -74,8 +74,8 @@ export default {
   data() {
       return{
         form:{
-          email: null,
-          password: null,
+          email: 'superadmin@gmail.com',
+          password: 1234,
         }
       }
   },
@@ -83,7 +83,12 @@ export default {
   methods: {
       adminLogin(){
           this.$store.dispatch("LOGIN",this.form)
-        
+        .then((res) =>{
+            console.log(res.data)
+            this.$router.push({name: 'admin-dashboard'})
+        }).catch((err) =>{
+            console.log(err.response.data.errors)
+        })
       }
   },
 }

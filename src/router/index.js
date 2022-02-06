@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import store from '../store'
+import Logout from '../components/backend/Logout.vue'
 import Home from '../views/website/Home.vue'
 import Manage from "../views/backend/agent/Manage"
 import Create from "../views/backend/agent/Create"
@@ -49,6 +50,7 @@ const routes = [
           requiresAuth: true
         }
       },
+      
     ]
   },
   {
@@ -58,6 +60,12 @@ const routes = [
     meta:{
       visited: true
     }
+  },
+  {
+    path: '/logout',
+    name: 'logout',
+    component: Logout,
+    
   },
 ]
 
