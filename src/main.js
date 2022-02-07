@@ -2,13 +2,27 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
+import filter from './filter'
 
-import "@/core/plugins/keenthemes";
-import "@/core/plugins/prismjs";
+// import "@/core/plugins/keenthemes";
+// import "@/core/plugins/prismjs";
 import 'bootstrap'
 
+import './assets/js/scripts'
+
+import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
+
+// Import Bootstrap an BootstrapVue CSS files (order is important)
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
+
+// Make BootstrapVue available throughout your project
+Vue.use(BootstrapVue)
+// Optionally install the BootstrapVue icon components plugin
+Vue.use(IconsPlugin)
+
 // Global Javascript Bundle
-// import './assets/plugins/global/plugins.bundle.js'
+// import './assets/plugins/global/plugins.bundle'
 // import './assets/js/scripts.bundle'
 // Page Vendors Javascript
 // import './assets/plugins/custom/fullcalendar/fullcalendar.bundle'
@@ -26,5 +40,6 @@ Vue.config.productionTip = false
 new Vue({
   router,
   store,
+  filter,
   render: h => h(App)
 }).$mount('#app')

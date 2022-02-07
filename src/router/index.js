@@ -3,8 +3,8 @@ import VueRouter from 'vue-router'
 import store from '../store'
 import Logout from '../components/backend/Logout.vue'
 import Home from '../views/website/Home.vue'
-import Manage from "../views/backend/agent/Manage"
-import Create from "../views/backend/agent/Create"
+import CategoryManage from "../views/backend/category/Manage"
+import CategoryCreate from "../views/backend/category/Create"
 
 Vue.use(VueRouter)
 
@@ -35,17 +35,17 @@ const routes = [
         }
       },
       {
-        path: '/admin/agents',
-        name: 'agents',
-        component: Manage,
+        path: '/admin/category',
+        name: 'category',
+        component: CategoryManage,
         meta:{
           requiresAuth: true
         }
       },
       {
-        path: '/admin/add-agent',
-        name: 'agent-add',
-        component: Create,
+        path: '/admin/add-category',
+        name: 'category-add',
+        component: CategoryCreate,
         meta:{
           requiresAuth: true
         }
