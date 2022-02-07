@@ -1,70 +1,100 @@
 <template>
-  <div class="hold-transition login-page">
-    <div class="login-box">
-        <div class="login-logo">
-            <a href="../../index2.html"><b>Agency</b>RA</a>
-        </div>
-        <!-- /.login-logo -->
-        <div class="card">
-            <div class="card-body login-card-body">
-            <p class="login-box-msg">Sign in to start your session</p>
-
-            <form @submit.prevent="adminLogin">
-                <div class="input-group mb-3">
-                <input type="email" class="form-control" v-model="form.email" placeholder="Email">
-                <div class="input-group-append">
-                    <div class="input-group-text">
-                    <span class="fas fa-envelope"></span>
-                    </div>
-                </div>
-                </div>
-                <div class="input-group mb-3">
-                <input type="password" class="form-control" v-model="form.password" placeholder="Password">
-                <div class="input-group-append">
-                    <div class="input-group-text">
-                    <span class="fas fa-lock"></span>
-                    </div>
-                </div>
-                </div>
-                <div class="row">
-                <div class="col-8">
-                    <div class="icheck-primary">
-                    <input type="checkbox" id="remember">
-                    <label for="remember">
-                        Remember Me
-                    </label>
-                    </div>
-                </div>
-                <!-- /.col -->
-                <div class="col-4">
-                    <button type="submit" class="btn btn-primary btn-block">Sign In</button>
-                </div>
-                <!-- /.col -->
-                </div>
-            </form>
-
-            <div class="social-auth-links text-center mb-3">
-                <p>- OR -</p>
-                <a href="#" class="btn btn-block btn-primary">
-                <i class="fab fa-facebook mr-2"></i> Sign in using Facebook
-                </a>
-                <a href="#" class="btn btn-block btn-danger">
-                <i class="fab fa-google-plus mr-2"></i> Sign in using Google+
-                </a>
+  <!--begin::Authentication - Sign-in -->
+  <div class="d-flex flex-column flex-column-fluid bgi-position-y-bottom position-x-center bgi-no-repeat bgi-size-contain bgi-attachment-fixed" :style="{'background-image': 'url(' + require('../../assets/img/media/illustrations/sketchy-1/14.png') + ')'}">
+    <!--begin::Content-->
+    <div class="d-flex flex-center flex-column flex-column-fluid p-10 pb-lg-20">
+      <!--begin::Logo-->
+      <a href="../../demo1/dist/index.html" class="mb-12">
+        <img alt="Logo" src="../../assets/img/media/logos/logo-1.svg" class="h-40px" />
+      </a>
+      <!--end::Logo-->
+      <!--begin::Wrapper-->
+      <div class="w-lg-500px bg-body rounded shadow-sm p-10 p-lg-15 mx-auto">
+        <!--begin::Form-->
+        <form class="form w-100" novalidate="novalidate" id="kt_sign_in_form" @submit.prevent="adminLogin">
+          <!--begin::Heading-->
+          <div class="text-center mb-10">
+            <!--begin::Title-->
+            <h1 class="text-dark mb-3">Sign In to Metronic</h1>
+            <!--end::Title-->
+            <!--begin::Link-->
+            <div class="text-gray-400 fw-bold fs-4">New Here?
+              <a href="../../demo1/dist/authentication/flows/basic/sign-up.html" class="link-primary fw-bolder">Create an Account</a></div>
+            <!--end::Link-->
+          </div>
+          <!--begin::Heading-->
+          <!--begin::Input group-->
+          <div class="fv-row mb-10">
+            <!--begin::Label-->
+            <label class="form-label fs-6 fw-bolder text-dark">Email</label>
+            <!--end::Label-->
+            <!--begin::Input-->
+            <input class="form-control form-control-lg form-control-solid" v-model="form.email" type="text" name="email" autocomplete="off" />
+            <!--end::Input-->
+          </div>
+          <!--end::Input group-->
+          <!--begin::Input group-->
+          <div class="fv-row mb-10">
+            <!--begin::Wrapper-->
+            <div class="d-flex flex-stack mb-2">
+              <!--begin::Label-->
+              <label class="form-label fw-bolder text-dark fs-6 mb-0">Password</label>
+              <!--end::Label-->
+              <!--begin::Link-->
+              <a href="../../demo1/dist/authentication/flows/basic/password-reset.html" class="link-primary fs-6 fw-bolder">Forgot Password ?</a>
+              <!--end::Link-->
             </div>
-            <!-- /.social-auth-links -->
-
-            <p class="mb-1">
-                <a href="forgot-password.html">I forgot my password</a>
-            </p>
-            <p class="mb-0">
-                <a href="register.html" class="text-center">Register a new membership</a>
-            </p>
-            </div>
-            <!-- /.login-card-body -->
-        </div>
+            <!--end::Wrapper-->
+            <!--begin::Input-->
+            <input class="form-control form-control-lg form-control-solid" v-model="form.password" type="password" name="password" autocomplete="off" />
+            <!--end::Input-->
+          </div>
+          <!--end::Input group-->
+          <!--begin::Actions-->
+          <div class="text-center">
+            <!--begin::Submit button-->
+            <button type="submit" id="kt_sign_in_submit" class="btn btn-lg btn-primary w-100 mb-5">
+              <span class="indicator-label">Continue</span>
+              <span class="indicator-progress">Please wait...
+									<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
+            </button>
+            <!--end::Submit button-->
+            <!--begin::Separator-->
+            <div class="text-center text-muted text-uppercase fw-bolder mb-5">or</div>
+            <!--end::Separator-->
+            <!--begin::Google link-->
+            <a href="#" class="btn btn-flex flex-center btn-light btn-lg w-100 mb-5">
+              <img alt="Logo" src="../../assets/img/media/svg/brand-logos/google-icon.svg" class="h-20px me-3" />Continue with Google</a>
+            <!--end::Google link-->
+            <!--begin::Google link-->
+            <a href="#" class="btn btn-flex flex-center btn-light btn-lg w-100 mb-5">
+              <img alt="Logo" src="../../assets/img/media/svg/brand-logos/facebook-4.svg" class="h-20px me-3" />Continue with Facebook</a>
+            <!--end::Google link-->
+            <!--begin::Google link-->
+            <a href="#" class="btn btn-flex flex-center btn-light btn-lg w-100">
+              <img alt="Logo" src="../../assets/img/media/svg/brand-logos/apple-black.svg" class="h-20px me-3" />Continue with Apple</a>
+            <!--end::Google link-->
+          </div>
+          <!--end::Actions-->
+        </form>
+        <!--end::Form-->
+      </div>
+      <!--end::Wrapper-->
     </div>
+    <!--end::Content-->
+    <!--begin::Footer-->
+    <div class="d-flex flex-center flex-column-auto p-10">
+      <!--begin::Links-->
+      <div class="d-flex align-items-center fw-bold fs-6">
+        <a href="https://keenthemes.com" class="text-muted text-hover-primary px-2">About</a>
+        <a href="mailto:support@keenthemes.com" class="text-muted text-hover-primary px-2">Contact</a>
+        <a href="https://1.envato.market/EA4JP" class="text-muted text-hover-primary px-2">Contact Us</a>
+      </div>
+      <!--end::Links-->
+    </div>
+    <!--end::Footer-->
   </div>
+  <!--end::Authentication - Sign-in-->
 </template>
 
 <script>

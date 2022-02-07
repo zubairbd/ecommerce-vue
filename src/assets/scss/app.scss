@@ -1,3 +1,11 @@
-@import "~@fortawesome/fontawesome-free/css/all.css";
-@import "~admin-lte";
-//@import '~bootstrap';
+//@import "~@fortawesome/fontawesome-free/css/all.css";
+
+
+@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+@import "../plugins/global/plugins.bundle.css";
+@import "../css/style.bundle.css";
+@import '~bootstrap';
+
+// Main demo style scss
+//@import "./plugins";
+//@import "./style";
