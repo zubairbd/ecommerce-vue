@@ -9,10 +9,21 @@ axios.defaults.baseURL = 'http://127.0.0.1:8000/api/v1';
 
 export default new Vuex.Store({
   
-  state: {},
-    getters: {},
-    actions: {},
-    mutations: {},
+  state: {
+    sidebarClick: false,
+  },
+    getters: {
+      isActive(state){
+        return state.isActive;
+      }
+    },
+    actions: {
+    },
+    mutations: {
+      OPEN_MENU(state, active){
+        state.isActive = active;
+      }
+    },
     modules: {
         auth
     },

@@ -38,5 +38,6 @@ export default Vue.mixin({
             let data = {0: "bg-danger", 1: "bg-success"}
             return data[status];
         },
+
     }
 });

@@ -1,12 +1,17 @@
 //@import "~@fortawesome/fontawesome-free/css/all.css";
 
 
-@import '~bootstrap';
+//@import '~bootstrap';
+//@import '~bootstrap/dist/css/bootstrap';
+//@import '~bootstrap-vue/dist/bootstrap-vue';
+//@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+//@import "../css/bootstrap.min.css";
 
-@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
-@import "../plugins/global/plugins.bundle.css";
-@import "../css/style.bundle.css";
-// @import '~bootstrap';
-// Main demo style scss
-//@import "./plugins";
-//@import "./style";
+
+@import "~@coreui/coreui/dist/css/coreui.min.css";
+@import "~@coreui/icons/css/all.min.css";
+@import "../css/custom.css";
+//@import "../coreui/simplebar.css";
+//@import "../coreui/simplebar2.css";
+//@import "../coreui/examples.css";
+//@import "../coreui/style.css";
