@@ -4,15 +4,15 @@
       <img src="../../assets/media/logo-light.png" width="80px">
     </div>
     <ul class="sidebar-nav" data-coreui="navigation" data-simplebar>
-      <li class="nav-item"><router-link class="nav-link" :to="{name:'admin-dashboard'}">
+      <li class="nav-item"><router-link active-class="active" class="nav-link" :to="{name:'admin-dashboard'}">
         <div class="nav-icon"><i class="cil-home"></i></div>
         Dashboard</router-link>
       </li>
-      <li class="nav-title">Theme</li>
-      <li class="nav-item"><a class="nav-link" href="colors.html">
-        <div class="nav-icon">
-          <i class="cil-home"></i>
-        </div>  Colors</a></li>
+      <li class="nav-title">Menu</li>
+      <li class="nav-item"><router-link :to="{name:'category'}" active-class="active" class="nav-link">
+        <div class="nav-icon"><i class="cil-library-add"></i></div>
+        Category</router-link>
+      </li>
       <li class="nav-item"><a class="nav-link" href="typography.html">
         <div class="nav-icon">
           <i class="cil-home"></i>

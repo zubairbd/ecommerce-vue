@@ -15,8 +15,12 @@ Vue.use(IconsPlugin)
 
 import '../src/assets/scss/app.scss'
 
+window.axios = require('axios');
 
+import toastr from "toastr";
+window.toastr = toastr;
 
+import Swal from 'sweetalert2'
 
 Vue.config.productionTip = false
 

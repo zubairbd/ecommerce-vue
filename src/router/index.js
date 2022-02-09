@@ -5,6 +5,7 @@ import Logout from '../components/backend/Logout.vue'
 import Home from '../views/website/Home.vue'
 import CategoryManage from "../views/backend/category/Manage"
 import CategoryCreate from "../views/backend/category/Create"
+import CategoryEdit from "../views/backend/category/Edit"
 
 Vue.use(VueRouter)
 
@@ -46,6 +47,14 @@ const routes = [
         path: '/admin/add-category',
         name: 'category-add',
         component: CategoryCreate,
+        meta:{
+          requiresAuth: true
+        }
+      },
+      {
+        path: '/admin/edit-category/:id',
+        name: 'category-edit',
+        component: CategoryEdit,
         meta:{
           requiresAuth: true
         }

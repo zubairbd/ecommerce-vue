@@ -5,25 +5,25 @@
         <div class="col-lg-8">
           <div class="card-group d-block d-md-flex row">
             <div class="card col-md-7 p-4 mb-0">
-              <form @submit.prevent="adminLogin">
+              <form @submit.prevent="adminLogin()">
               <div class="card-body">
                 <h1>Login</h1>
                 <p class="text-medium-emphasis">Sign In to your account</p>
                 <div class="input-group mb-3"><span class="input-group-text">
-                      <svg class="icon">
-                        <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-user"></use>
-                      </svg></span>
-                  <input class="form-control" type="text" placeholder="Username">
+                      <div class="icon">
+                        <i class="cil-user"></i>
+                      </div></span>
+                  <input class="form-control" v-model="form.email" type="text" placeholder="Username">
                 </div>
                 <div class="input-group mb-4"><span class="input-group-text">
-                      <svg class="icon">
-                        <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-lock-locked"></use>
-                      </svg></span>
-                  <input class="form-control" type="password" placeholder="Password">
+                      <div class="icon">
+                        <i class="cil-lock-locked"></i>
+                      </div></span>
+                  <input class="form-control" v-model="form.password" type="password" placeholder="Password">
                 </div>
                 <div class="row">
                   <div class="col-6">
-                    <button class="btn btn-primary px-4" type="button">Login</button>
+                    <button class="btn btn-primary px-4" type="submit">Login</button>
                   </div>
                   <div class="col-6 text-end">
                     <button class="btn btn-link px-0" type="button">Forgot password?</button>
