@@ -10,8 +10,10 @@
       </li>
       <li class="nav-title">Menu</li>
       <li class="nav-item"><router-link :to="{name:'category'}" active-class="active" class="nav-link">
-        <div class="nav-icon"><i class="cil-library-add"></i></div>
-        Category</router-link>
+        <div class="nav-icon"><i class="cil-library-add"></i></div>Category</router-link>
+      </li>
+      <li class="nav-item"><router-link :to="{name:'subcategory'}" active-class="active" class="nav-link">
+        <div class="nav-icon"><i class="cil-library-add"></i></div>Sub Category</router-link>
       </li>
       <li class="nav-item"><a class="nav-link" href="typography.html">
         <div class="nav-icon">

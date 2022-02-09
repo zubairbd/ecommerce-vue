@@ -17,8 +17,14 @@ import '../src/assets/scss/app.scss'
 
 window.axios = require('axios');
 
+
 import toastr from "toastr";
-window.toastr = toastr;
+// window.toastr = toastr;
+Vue.use(toastr);
+import Toast from "vue-toastification";
+// Import the CSS or use your own!
+import "vue-toastification/dist/index.css";
+
 
 import VueSweetalert2 from 'vue-sweetalert2';
 
@@ -33,5 +39,6 @@ new Vue({
   router,
   store,
   filter,
+  Toast,
   render: h => h(App)
 }).$mount('#app')

@@ -3,9 +3,13 @@ import VueRouter from 'vue-router'
 import store from '../store'
 import Logout from '../components/backend/Logout.vue'
 import Home from '../views/website/Home.vue'
+
 import CategoryManage from "../views/backend/category/Manage"
 import CategoryCreate from "../views/backend/category/Create"
 import CategoryEdit from "../views/backend/category/Edit"
+import SubCategoryManage from "../views/backend/subcategory/Manage"
+import SubCategoryCreate from "../views/backend/subcategory/Create"
+import SubCategoryEdit from "../views/backend/subcategory/Edit"
 
 Vue.use(VueRouter)
 
@@ -35,6 +39,7 @@ const routes = [
           requiresAuth: true
         }
       },
+      // Category Route
       {
         path: '/admin/category',
         name: 'category',
@@ -55,6 +60,31 @@ const routes = [
         path: '/admin/edit-category/:id',
         name: 'category-edit',
         component: CategoryEdit,
+        meta:{
+          requiresAuth: true
+        }
+      },
+      // Sub Category Route
+      {
+        path: '/admin/subcategory',
+        name: 'subcategory',
+        component: SubCategoryManage,
+        meta:{
+          requiresAuth: true
+        }
+      },
+      {
+        path: '/admin/add-subcategory',
+        name: 'subcategory-add',
+        component: SubCategoryCreate,
+        meta:{
+          requiresAuth: true
+        }
+      },
+      {
+        path: '/admin/edit-subcategory/:id',
+        name: 'subcategory-edit',
+        component: SubCategoryEdit,
         meta:{
           requiresAuth: true
         }
