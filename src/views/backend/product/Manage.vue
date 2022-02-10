@@ -5,7 +5,7 @@
         <div class="col-md-12">
           <div class="card mb-4">
             <div class="card-header bg-info">Product List
-              <span><router-link :to="{name:'product-add'}" class="btn btn-warning btn-sm float-end">Add Category</router-link></span>
+              <span><router-link :to="{name:'product-add'}" class="btn btn-warning btn-sm float-end">Add Product</router-link></span>
             </div>
             <div class="card-body">
               <table class="table table-hover">
