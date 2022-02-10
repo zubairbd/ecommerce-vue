@@ -20,7 +20,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr v-for="(row, key) in data.data" :key="key">
+                <tr v-for="(row, key) in subcategories" :key="key">
                   <th scope="row">{{ ++key}}</th>
                   <td>{{ row.category.category_name }}</td>
                   <td>{{ row.category_name }}</td>
@@ -43,7 +43,7 @@
               </table>
             </div>
             <div class="card-footer">
-              <pagination :data="data" @pagination-change-page="getSubCategory"></pagination>
+              <!-- <pagination :data="data" @pagination-change-page="getSubCategories"></pagination> -->
 
             </div>
           </div>
@@ -66,17 +66,15 @@ export default {
     }
   },
   mounted() {
-    this.getSubCategory()
+    this.$store.dispatch("getSubCategories");
+  },
+ 
+  computed: {
+    subcategories(){
+        return this.$store.getters.subcategories;
+    }
   },
   methods: {
-    getSubCategory(page = 1) {
-      axios.get(`/get-subcategories?page=${page}`).then((response)=> {
-        this.data = response.data.data
-            // this.$toast.success("successfully get");
-        }).catch((error)=> {
-            console.log(error);
-        })
-    },
     remove: function (id) {
       this.confirm(() =>{
         axios.get("remove-subcategory/" + id).then((response) => {

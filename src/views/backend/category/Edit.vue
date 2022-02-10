@@ -9,28 +9,24 @@
                 <span><router-link :to="{name:'category'}" class="btn btn-info btn-sm float-end">Category Manage</router-link></span>
               </div>
               <div class="card-body">
-                <div class="row justify-content-center">
-                  <div class="col-md-6">
-                    <div class="mb-3">
-                      <label class="form-label" for="categoryName">Category Name</label>
+                <div class="mb-3 row">
+                  <label class="col-sm-4 col-form-label" for="categoryName">Category Name</label>
+                  <div class="col-sm-8">
                       <input type="text" class="form-control" :class="{'is-invalid':errors.category_name}" v-model="form.category_name" id="categoryName" placeholder="Category Name">
+                  </div>
+                </div>
+                <div class="mb-3 row">
+                  <label class="col-sm-4 col-form-label" for="categoryName">Status</label>
+                  <div class="col-sm-8">
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" id="Active" v-model="form.status" type="radio" value="1">
+                      <label class="form-check-label" for="Active">Active</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" id="Inactive" v-model="form.status" type="radio" value="0">
+                      <label class="form-check-label" for="Inactive">Inactive</label>
                     </div>
                   </div>
-                  <div class="col-md-12">
-                    <div class="mb-3">
-                      <label class="form-label" for="categoryName">Status</label>
-                      <br>
-                      <div class="form-check form-check-inline">
-                        <input class="form-check-input" id="inlineRadio1" v-model="form.status" type="radio" name="inlineRadioOptions" value="1">
-                        <label class="form-check-label" for="inlineRadio1">Active</label>
-                      </div>
-                      <div class="form-check form-check-inline">
-                        <input class="form-check-input" id="inlineRadio2" v-model="form.status" type="radio" name="inlineRadioOptions" value="0">
-                        <label class="form-check-label" for="inlineRadio2">Inactive</label>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-4"></div>
                 </div>
               </div>
               <div class="card-footer">

@@ -26,7 +26,7 @@
                   <td>{{ product.product_name }}</td>
                   <td>{{ product.category.category_name }} <i class="cil-arrow-right"></i> {{ product.subcategory.category_name }}</td>
                   <td>{{ product.price }}</td>
-                  <td><img width="80px" :src="product.image_one"></td>
+                  <td><img width="80px" :src="product.feature_image"></td>
                   <td><span class="badge" :class="statusColor(product.status)">{{statusName(product.status)}}</span></td>
                   <td>
                     <div class="btn-groups">
@@ -77,13 +77,7 @@ export default {
     remove: function (id) {
       this.confirm(() =>{
         axios.get("remove-product/" + id).then((response) => {
-          // this.$toast.success(response.data.message)
-          toastr.success(response.data.message)
-          // this.$swal.fire(
-          //   'Deleted!',
-          //   'Your file has been deleted.',
-          //   'success'
-          // )
+          toastr.success(response.data.message);
           this.getProducts()
         }).catch((error) =>{
           console.log(error)
