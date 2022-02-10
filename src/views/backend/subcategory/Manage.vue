@@ -20,7 +20,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr v-for="(row, key) in data" :key="key">
+                <tr v-for="(row, key) in data.data" :key="key">
                   <th scope="row">{{ ++key}}</th>
                   <td>{{ row.category.category_name }}</td>
                   <td>{{ row.category_name }}</td>
@@ -42,6 +42,10 @@
                 </tbody>
               </table>
             </div>
+            <div class="card-footer">
+              <pagination :data="data" @pagination-change-page="getSubCategory"></pagination>
+
+            </div>
           </div>
         </div>
         <!-- /.col-->
@@ -53,7 +57,6 @@
 
 <script>
 import axios from "axios";
-import toastr from 'toastr';
 export default {
   name: "Manage",
 
@@ -63,13 +66,12 @@ export default {
     }
   },
   mounted() {
-    this.getCategory()
+    this.getSubCategory()
   },
   methods: {
-    getCategory() {
-      axios.get(`/get-subcategories`).then((response)=> {
-            this.data = response.data.data
-			this.amar = response.data.data.length
+    getSubCategory(page = 1) {
+      axios.get(`/get-subcategories?page=${page}`).then((response)=> {
+        this.data = response.data.data
             // this.$toast.success("successfully get");
         }).catch((error)=> {
             console.log(error);
@@ -77,15 +79,14 @@ export default {
     },
     remove: function (id) {
       this.confirm(() =>{
-        axios.get("remove-category/" + id).then((response) => {
-          // this.$toast.success(response.data.message)
-          toastr.success(response.data.message)
-          // this.$swal.fire(
-          //   'Deleted!',
-          //   'Your file has been deleted.',
-          //   'success'
-          // )
-          this.getCategory()
+        axios.get("remove-subcategory/" + id).then((response) => {
+          // toastr.success(response.data.message)
+          this.$swal.fire(
+            'Deleted!',
+              response.data.message,
+            'success'
+          )
+          this.getSubCategory()
         }).catch((error) =>{
           console.log(error)
         })

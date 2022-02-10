@@ -1,10 +1,11 @@
 
 import axios from 'axios'
+import moment from 'moment'
 
 export const auth = {
     state: {
         auth_status:false,
-        auth_token: null,
+        auth_token: localStorage.getItem('SET_AUTH_TOKEN') || null,
         auth_info:{
             name:null,
             email: null,
@@ -25,6 +26,10 @@ export const auth = {
         GET_AUTH_INFO(state){
             return state.auth_info;
         },
+        expired: (state) => {
+            const decoded = state.auth_token;
+            return decoded && moment.unix(decoded.exp).isBefore(moment().format())
+        }
     },
     actions: {
         LOGIN(context, loginData){
@@ -32,6 +37,7 @@ export const auth = {
                 axios.post('/login', loginData)
                 .then((res) =>{
                     // console.log(res.data.data)
+                    localStorage.setItem('SET_AUTH_TOKEN', res.data.data.access_token)
                     context.commit('SET_AUTH_TOKEN', res.data.data.access_token)
                     context.commit('SET_AUTH_INFO', res.data.data.user)
                     resolve(res)
@@ -47,12 +53,13 @@ export const auth = {
             return new Promise((resolve,reject) =>{
                 axios.post('/logout')
                 .then((res) =>{
-                    // console.log(res.data.data)
+                    console.log(res.data.data)
+                    localStorage.removeItem('SET_AUTH_TOKEN')
                     context.commit('SET_AUTH_LOGOUT')
                     resolve(res)
                 }).catch((err) =>{
                     reject(err)
-                    console.log(err.response.data.errors);
+                    console.log(err.response.data.message);
                 })
             })
         }

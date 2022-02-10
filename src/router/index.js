@@ -10,6 +10,9 @@ import CategoryEdit from "../views/backend/category/Edit"
 import SubCategoryManage from "../views/backend/subcategory/Manage"
 import SubCategoryCreate from "../views/backend/subcategory/Create"
 import SubCategoryEdit from "../views/backend/subcategory/Edit"
+import ProductManage from "../views/backend/product/Manage"
+import ProductCreate from "../views/backend/product/Create"
+import ProductEdit from "../views/backend/product/Edit"
 
 Vue.use(VueRouter)
 
@@ -85,6 +88,31 @@ const routes = [
         path: '/admin/edit-subcategory/:id',
         name: 'subcategory-edit',
         component: SubCategoryEdit,
+        meta:{
+          requiresAuth: true
+        }
+      },
+      // Product Route
+      {
+        path: '/admin/products',
+        name: 'products',
+        component: ProductManage,
+        meta:{
+          requiresAuth: true
+        }
+      },
+      {
+        path: '/admin/add-product',
+        name: 'product-add',
+        component: ProductCreate,
+        meta:{
+          requiresAuth: true
+        }
+      },
+      {
+        path: '/admin/edit-product/:id',
+        name: 'product-edit',
+        component: ProductEdit,
         meta:{
           requiresAuth: true
         }

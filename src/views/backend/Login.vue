@@ -64,8 +64,8 @@ export default {
   methods: {
       adminLogin(){
           this.$store.dispatch("LOGIN",this.form)
-        .then((res) =>{
-            console.log(res.data)
+        .then(() =>{
+            // console.log(res.data)
             this.$router.push({name: 'admin-dashboard'})
         }).catch((err) =>{
             console.log(err.response.data.errors)

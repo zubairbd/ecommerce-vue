@@ -4,7 +4,8 @@ Vue.use(Vuex)
 import axios from 'axios'
 import {auth} from './modules/auth'
 import {category} from './modules/category'
-import createPersistedState from "vuex-persistedstate"
+import {product} from './modules/product'
+// import createPersistedState from "vuex-persistedstate"
 
 axios.defaults.baseURL = 'http://127.0.0.1:8000/api/v1';
 
@@ -27,9 +28,11 @@ export default new Vuex.Store({
     },
     modules: {
         auth,
-        category
+      category,
+      product,
     },
-    plugins: [createPersistedState({
-        paths: ['auth']
-    })],
+    // plugins: [createPersistedState({
+    //     paths: ['auth'],
+    //
+    // })],
 })
