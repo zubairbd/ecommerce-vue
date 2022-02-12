@@ -10,6 +10,9 @@ import CategoryEdit from "../views/backend/category/Edit"
 import SubCategoryManage from "../views/backend/subcategory/Manage"
 import SubCategoryCreate from "../views/backend/subcategory/Create"
 import SubCategoryEdit from "../views/backend/subcategory/Edit"
+import BrandManage from "../views/backend/brand/Manage"
+import BrandCreate from "../views/backend/brand/Create"
+import BrandEdit from "../views/backend/brand/Edit"
 import ProductManage from "../views/backend/product/Manage"
 import ProductCreate from "../views/backend/product/Create"
 import ProductEdit from "../views/backend/product/Edit"
@@ -92,6 +95,33 @@ const routes = [
           requiresAuth: true
         }
       },
+
+      // Brand Route
+      {
+        path: '/admin/brands',
+        name: 'brands',
+        component: BrandManage,
+        meta:{
+          requiresAuth: true
+        }
+      },
+      {
+        path: '/admin/add-brand',
+        name: 'brand-add',
+        component: BrandCreate,
+        meta:{
+          requiresAuth: true
+        }
+      },
+      {
+        path: '/admin/edit-brand/:id',
+        name: 'brand-edit',
+        component: BrandEdit,
+        meta:{
+          requiresAuth: true
+        }
+      },
+
       // Product Route
       {
         path: '/admin/products',

@@ -56,22 +56,39 @@
 <script>
 import axios from "axios";
 import toastr from 'toastr';
+
 export default {
   name: "Manage",
 
   data(){
     return {
-      data:{}
+      data:{},
+      inject: ["mySpinner"]
     }
   },
   mounted() {
     this.$store.dispatch("getProducts");
+    this.spin = false
   },
   computed: {
     products(){
         return this.$store.getters.products;
     }
   },
+  // created(){
+  //   // Add a request interceptor
+  // axios.interceptors.request.use(function (config) {
+  //     // Do something before request is sent
+  //     this.$store.commit('LOADER', true);
+  //     return config;
+  //   }, function (error) {
+  //     // Do something with request error
+  //     this.$store.commit('LOADER', false);
+  //     return Promise.reject(error);
+  //   });
+
+  
+  // },
   methods: {
 
     remove: function (id) {

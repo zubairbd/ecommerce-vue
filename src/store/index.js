@@ -13,6 +13,7 @@ export default new Vuex.Store({
   
   state: {
     sidebarClick: false,
+    loader: false,
   },
     getters: {
       isActive(state){
@@ -22,8 +23,8 @@ export default new Vuex.Store({
     actions: {
     },
     mutations: {
-      OPEN_MENU(state, active){
-        state.isActive = active;
+      LOADER(state, payload){
+        state.loader = payload;
       }
     },
     modules: {
