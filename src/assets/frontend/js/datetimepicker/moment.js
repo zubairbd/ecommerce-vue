@@ -1864,7 +1864,7 @@
             } else {
                 duration.milliseconds = input;
             }
-        } else if (!!(match = aspNetTimeSpanJsonRegex.exec(input))) {
+        } else if (match = aspNetTimeSpanJsonRegex.exec(input)) {
             sign = (match[1] === '-') ? -1 : 1;
             duration = {
                 y: 0,
@@ -1874,7 +1874,7 @@
                 s: toInt(match[SECOND]) * sign,
                 ms: toInt(match[MILLISECOND]) * sign
             };
-        } else if (!!(match = isoDurationRegex.exec(input))) {
+        } else if (match = isoDurationRegex.exec(input)) {
             sign = (match[1] === '-') ? -1 : 1;
             parseIso = function (inp) {
                 // We'd normally use ~~inp for this, but unfortunately it also

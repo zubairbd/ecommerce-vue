@@ -34,7 +34,7 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/website/About.vue')
   },
   {
-    path: '/',
+    path: '/admin/',
     component: () => import('../views/backend/Index'),
     children: [
       {

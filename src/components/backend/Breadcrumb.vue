@@ -1,5 +1,5 @@
 <template>
-  <div class="header-divider"></div>
+  <!-- <div class="header-divider"></div> -->
   <div class="container-fluid">
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb my-0 ms-2">

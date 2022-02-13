@@ -3,11 +3,12 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import filter from './filter'
-import VueAxios from 'vue-axios';
-import axios from 'axios';
+import VueAxios from 'vue-axios'
+import axios from 'axios'
 import '@coreui/coreui'
 import 'bootstrap'
-import jQuery from 'jquery'
+import jQuery from 'jquery';
+
 global.jQuery=jQuery
 global.$=jQuery
 
@@ -34,6 +35,8 @@ Vue.use(VueSweetalert2);
 
 // CKEditor
 import CKEditor from 'ckeditor4-vue';
+
+import vuetify from './plugins/vuetify'
 Vue.use( CKEditor );
 
 
@@ -48,5 +51,6 @@ new Vue({
   filter,
   Toast,
   toastr,
+  vuetify,
   render: h => h(App)
 }).$mount('#app')
