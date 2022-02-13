@@ -1,5 +1,6 @@
 <template>
   <div class="body flex-grow-1 px-3">
+    <Preloader v-if="loadingStatus" />
     <div class="container-lg">
       <div class="row">
         <div class="col-md-12">
@@ -52,20 +53,26 @@
 <script>
 import axios from "axios";
 import toastr from 'toastr';
+import Preloader from "../../../components/backend/Preloader";
 export default {
   name: "Manage",
-
+  components: {Preloader},
   data(){
     return {
-      data:{}
+      data:{},
+      // isLoading: true
     }
   },
   mounted() {
     this.$store.dispatch("getCategories");
+    // this.isLoading = false;
   },
   computed: {
     categories(){
         return this.$store.getters.categories;
+    },
+    loadingStatus(){
+      return this.$store.getters.loadingStatus;
     }
   },
   methods: {
@@ -73,8 +80,8 @@ export default {
     remove: function (id) {
       this.confirm(() =>{
         axios.get("remove-category/" + id).then((response) => {
-          // this.$toast.success(response.data.message)
           toastr.success(response.data.message)
+          this.$store.dispatch("getCategories");
           // this.$swal.fire(
           //   'Deleted!',
           //   'Your file has been deleted.',

@@ -1,5 +1,6 @@
 <template>
   <div class="body flex-grow-1 px-3">
+    <Preloader v-if="loadingStatus" />
     <div class="container-lg">
       <div class="row">
         <div class="col-sm-6 col-lg-3">
@@ -754,8 +755,18 @@
 </template>
 
 <script>
+import Preloader from "../../components/backend/Preloader";
 export default {
   name: "Dashboard",
+  components: {Preloader},
+  data(){
+    return{
+      loadingStatus: true
+    }
+  },
+  mounted () {
+    this.Loader()
+  }
 }
 </script>
 

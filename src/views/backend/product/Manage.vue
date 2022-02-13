@@ -1,5 +1,6 @@
 <template>
   <div class="body flex-grow-1 px-3">
+    <Preloader v-if="loadingStatus" />
     <div class="container-lg">
       <div class="row">
         <div class="col-md-12">
@@ -56,46 +57,34 @@
 <script>
 import axios from "axios";
 import toastr from 'toastr';
+import Preloader from "../../../components/backend/Preloader";
 
 export default {
   name: "Manage",
-
+  components: {Preloader},
   data(){
     return {
       data:{},
-      inject: ["mySpinner"]
     }
   },
   mounted() {
     this.$store.dispatch("getProducts");
-    this.spin = false
+    this.$store.state.loadingStatus = true
   },
   computed: {
     products(){
         return this.$store.getters.products;
-    }
+    },
+    loadingStatus(){
+      return this.$store.getters.loadingStatus
+    },
   },
-  // created(){
-  //   // Add a request interceptor
-  // axios.interceptors.request.use(function (config) {
-  //     // Do something before request is sent
-  //     this.$store.commit('LOADER', true);
-  //     return config;
-  //   }, function (error) {
-  //     // Do something with request error
-  //     this.$store.commit('LOADER', false);
-  //     return Promise.reject(error);
-  //   });
-
-  
-  // },
   methods: {
-
     remove: function (id) {
       this.confirm(() =>{
         axios.get("remove-product/" + id).then((response) => {
           toastr.success(response.data.message);
-          this.getProducts()
+          this.$store.dispatch("getProducts")
         }).catch((error) =>{
           console.log(error)
         })

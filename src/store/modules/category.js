@@ -5,7 +5,6 @@ export const category = {
     state: {
         categoryData: [],
         subcategoryData: [],
-        brandData: [],
     },
     getters: {
         categories(state){
@@ -14,14 +13,14 @@ export const category = {
         subcategories(state){
             return state.subcategoryData;
         },
-        brands(state){
-            return state.brandData;
-        },
     },
     actions: {
-        getCategories(data){
-            axios.get("./get-categories").then((response)=> {
-                data.commit("categories", response.data.data);
+        getCategories({ commit }){
+            commit('loadingStatus', true)
+            return axios.get("./get-categories")
+                .then((response)=> {
+                commit("categories", response.data.data);
+                commit("loadingStatus", false);
                 // console.log(response.data.data);
             }).catch((error)=> {
                 console.log(error);
@@ -38,15 +37,7 @@ export const category = {
         getSubCategories(data){
             axios.get("./get-subcategories").then((response)=> {
                 data.commit("subcategories", response.data.data);
-                // console.log(response.data);
-            }).catch((error)=> {
-                console.log(error);
-            })
-        },
-        getBrands(data){
-            axios.get("./get-brands").then((response)=> {
-                data.commit("brands", response.data.data);
-                // console.log(response.data);
+                setTimeout(() => {data.commit("loadingStatus", false) }, 500)
             }).catch((error)=> {
                 console.log(error);
             })
@@ -58,9 +49,6 @@ export const category = {
         },
         subcategories(state, data){
             return state.subcategoryData = data;
-        },
-        brands(state, data){
-            return state.brandData = data;
         },
     },
   

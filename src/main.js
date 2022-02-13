@@ -3,11 +3,13 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import filter from './filter'
-
+import VueAxios from 'vue-axios';
+import axios from 'axios';
 import '@coreui/coreui'
 import 'bootstrap'
-import 'jquery'
-
+import jQuery from 'jquery'
+global.jQuery=jQuery
+global.$=jQuery
 
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 Vue.use(BootstrapVue)
@@ -15,7 +17,7 @@ Vue.use(IconsPlugin)
 
 import '../src/assets/scss/app.scss'
 
-window.axios = require('axios');
+Vue.use(VueAxios, axios);
 
 // Toastr
 import toastr from "toastr";

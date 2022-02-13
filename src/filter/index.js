@@ -38,6 +38,10 @@ export default Vue.mixin({
             let data = {0: "bg-danger", 1: "bg-success"}
             return data[status];
         },
-
+        Loader: function (){
+            setTimeout(() => {
+                this.loadingStatus = false
+            }, 500)
+        }
     }
 });

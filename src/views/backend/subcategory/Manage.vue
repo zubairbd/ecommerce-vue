@@ -1,5 +1,6 @@
 <template>
   <div class="body flex-grow-1 px-3">
+    <Preloader v-if="loadingStatus" />
     <div class="container-lg">
       <div class="row">
         <div class="col-md-12">
@@ -57,9 +58,10 @@
 
 <script>
 import axios from "axios";
+import Preloader from "../../../components/backend/Preloader";
 export default {
   name: "Manage",
-
+  components: {Preloader},
   data(){
     return {
       data:{}
@@ -67,24 +69,28 @@ export default {
   },
   mounted() {
     this.$store.dispatch("getSubCategories");
+    this.$store.state.loadingStatus = true
   },
  
   computed: {
     subcategories(){
         return this.$store.getters.subcategories;
-    }
+    },
+    loadingStatus(){
+      return this.$store.getters.loadingStatus
+    },
+
   },
   methods: {
     remove: function (id) {
       this.confirm(() =>{
         axios.get("remove-subcategory/" + id).then((response) => {
-          // toastr.success(response.data.message)
           this.$swal.fire(
             'Deleted!',
               response.data.message,
             'success'
-          )
-          this.getSubCategory()
+          );
+          this.$store.dispatch("getSubCategories");
         }).catch((error) =>{
           console.log(error)
         })

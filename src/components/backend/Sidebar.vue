@@ -85,10 +85,8 @@ export default {
       this.isActive = true
     }
   }
-
 }
 </script>
 
 <style scoped>
-
 </style>

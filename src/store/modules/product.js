@@ -14,7 +14,8 @@ export const product = {
         getProducts(data){
             axios.get("./get-products").then((response)=> {
                 data.commit("products", response.data.data);
-                // console.log(response);
+                setTimeout(() => {data.commit("loadingStatus", false) }, 500)
+
             }).catch((error)=> {
                 console.log(error);
             })

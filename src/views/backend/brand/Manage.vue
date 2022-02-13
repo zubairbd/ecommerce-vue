@@ -1,5 +1,6 @@
 <template>
   <div class="body flex-grow-1 px-3">
+    <Preloader v-if="loadingStatus" />
     <div class="container-lg">
       <div class="row">
         <div class="col-md-12">
@@ -19,17 +20,17 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr v-for="(row, key) in categories" :key="key">
+                <tr v-for="(row, key) in brands" :key="key">
                   <th scope="row">{{ ++key}}</th>
-                  <td>{{ row.category_name }}</td>
-                  <td>{{ row.category_slug }}</td>
+                  <td>{{ row.brand_name }}</td>
+                  <td>{{ row.brand_slug }}</td>
                   <td><span class="badge" :class="statusColor(row.status)">{{statusName(row.status)}}</span></td>
                   <td>
                     <div class="btn-groups">
                       <button class="btn btn-outline-primary" type="button" data-coreui-toggle="dropdown" aria-expanded="false"><i class="cil-options"></i></button>
                       <ul class="dropdown-menu">
-                        <li><router-link :to="`/admin/edit-category/${row.id}`" class="dropdown-item">Show</router-link></li>
-                        <li><router-link :to="`/admin/edit-category/${row.id}`" class="dropdown-item">Edit</router-link></li>
+                        <li><router-link :to="`/admin/edit-brand/${row.id}`" class="dropdown-item">Show</router-link></li>
+                        <li><router-link :to="`/admin/edit-brand/${row.id}`" class="dropdown-item">Edit</router-link></li>
                         <li><button type="button" class="dropdown-item" @click="remove(row.id)">Delete</button></li>
 
                       </ul>
@@ -52,35 +53,35 @@
 <script>
 import axios from "axios";
 import toastr from 'toastr';
+import Preloader from "../../../components/backend/Preloader";
 export default {
   name: "Manage",
-
+  components: {Preloader},
   data(){
     return {
       data:{}
     }
   },
   mounted() {
-    this.$store.dispatch("getCategories");
+    this.$store.dispatch("getBrands");
+    this.$store.state.loadingStatus = true
   },
   computed: {
-    categories(){
-        return this.$store.getters.categories;
-    }
+    brands(){
+        return this.$store.getters.brands;
+    },
+    loadingStatus(){
+      return this.$store.getters.loadingStatus
+    },
   },
   methods: {
 
     remove: function (id) {
       this.confirm(() =>{
-        axios.get("remove-category/" + id).then((response) => {
-          // this.$toast.success(response.data.message)
+        axios.get("remove-brand/" + id).then((response) => {
           toastr.success(response.data.message)
-          // this.$swal.fire(
-          //   'Deleted!',
-          //   'Your file has been deleted.',
-          //   'success'
-          // )
-          this.getCategory()
+          this.$store.dispatch("getBrands");
+          this.getBrands()
         }).catch((error) =>{
           console.log(error)
         })
