@@ -2,8 +2,6 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import store from '../store'
 import Logout from '../components/backend/Logout.vue'
-import Home from '../views/website/Home.vue'
-
 import CategoryManage from "../views/backend/category/Manage"
 import CategoryCreate from "../views/backend/category/Create"
 import CategoryEdit from "../views/backend/category/Edit"
@@ -16,14 +14,36 @@ import BrandEdit from "../views/backend/brand/Edit"
 import ProductManage from "../views/backend/product/Manage"
 import ProductCreate from "../views/backend/product/Create"
 import ProductEdit from "../views/backend/product/Edit"
+// Frontend Route Import
+import Home from '../views/website/Home.vue'
+import Category from '../views/website/Category.vue'
+
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home
+    name: 'Master',
+    component: () => import('../views/website/Master'),
+    children: [
+      {
+        path: '/',
+        name: 'index',
+        component: Home,
+        meta:{
+          requiresAuth: true
+        }
+      },
+      {
+        path: '/categories',
+        name: 'categories',
+        component: Category,
+        meta:{
+          requiresAuth: true
+        }
+      }
+    ]
   },
   {
     path: '/about',
@@ -33,6 +53,10 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/website/About.vue')
   },
+
+
+
+  //Admin Routes
   {
     path: '/admin/',
     component: () => import('../views/backend/Index'),
@@ -48,7 +72,7 @@ const routes = [
       // Category Route
       {
         path: '/admin/category',
-        name: 'category',
+        name: 'admin-category',
         component: CategoryManage,
         meta:{
           requiresAuth: true
