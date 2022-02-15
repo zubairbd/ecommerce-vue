@@ -71,6 +71,7 @@ p{
 .border-lg {
 	border: 1px solid #e2e5ec !important;
 }
+
 .btn-primary, .btn-soft-primary:hover, .btn-outline-primary:hover {
 	background-color: var(--primary);
 	border-color: var(--primary);
@@ -80,6 +81,10 @@ p{
 	padding: 0.6rem 1.2rem;
 	font-size: 0.875rem;
 	font-weight: inherit;
+}
+.btn-soft-primary {
+	background-color: var(--soft-primary);
+	color: var(--primary);
 }
 .form-control {
 	padding: 0.6rem 1rem;

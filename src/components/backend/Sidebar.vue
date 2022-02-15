@@ -9,7 +9,7 @@
         Dashboard</router-link>
       </li>
       <li class="nav-title">Menu</li>
-      <li class="nav-item"><router-link :to="{name:'category'}" active-class="active" class="nav-link">
+      <li class="nav-item"><router-link :to="{name:'admin-category'}" active-class="active" class="nav-link">
         <div class="nav-icon"><i class="cil-library-add"></i></div>Category</router-link>
       </li>
       <li class="nav-item"><router-link :to="{name:'subcategory'}" active-class="active" class="nav-link">

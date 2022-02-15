@@ -17,6 +17,7 @@ import ProductEdit from "../views/backend/product/Edit"
 // Frontend Route Import
 import Home from '../views/website/Home.vue'
 import Category from '../views/website/Category.vue'
+import ProductDetails from "../views/website/ProductDetails";
 
 
 Vue.use(VueRouter)
@@ -31,6 +32,14 @@ const routes = [
         path: '/',
         name: 'index',
         component: Home,
+        meta:{
+          requiresAuth: true
+        }
+      },
+      {
+        path: '/product/:product_slug',
+        name: 'product-details',
+        component: ProductDetails,
         meta:{
           requiresAuth: true
         }

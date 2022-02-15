@@ -6,7 +6,7 @@
           <div class="card mb-4">
             <form @submit.prevent="addCategory">
             <div class="card-header bg-warning">Category Add
-              <span><router-link :to="{name:'category'}" class="btn btn-info btn-sm float-end">Category Manage</router-link></span>
+              <span><router-link :to="{name:'admin-category'}" class="btn btn-info btn-sm float-end">Category Manage</router-link></span>
             </div>
             <div class="card-body">
                 <div class="row justify-content-center">

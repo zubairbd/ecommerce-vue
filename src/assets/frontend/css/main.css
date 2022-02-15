@@ -12,10 +12,11 @@
     --white: #fff;
     --gray: #6c757d;
     --gray-dark: #343a40;
-    --primary: #132a54;
+    --primary: #2e426b;
+    --hov-primary: #4f6797;
     --color-primary: #e30210;
-    --hov-primary: #dc3545;
-    --soft-primary: rgba(247, 123, 11, 0.15);
+    --hov-color-primary: #dc3545;
+    --soft-primary: rgba(46, 66, 107, 0.3);
     --secondary: #8f97ab;
     --soft-secondary: rgba(143, 151, 171, 0.15);
     --success: #0abb75;
@@ -691,4 +692,10 @@ input[type="number"] {
 }
 .banner-carousel.owl-carousel button.owl-dot.active{
     background-color: var(--primary);
+}
+.text-left {
+    text-align: left !important;
+}
+.bottom-dotted{
+    border-bottom: 2px dashed rgb(221, 221, 221)
 }

@@ -6,7 +6,7 @@
           <div class="card mb-4">
             <form @submit.prevent="updateCategory">
               <div class="card-header bg-warning">Category Edit
-                <span><router-link :to="{name:'category'}" class="btn btn-info btn-sm float-end">Category Manage</router-link></span>
+                <span><router-link :to="{name:'admin-category'}" class="btn btn-info btn-sm float-end">Category Manage</router-link></span>
               </div>
               <div class="card-body">
                 <div class="mb-3 row">
@@ -70,7 +70,7 @@ export default {
       axios.post(`/update-category/${this.id}`, this.form).then((response) =>{
         // this.$toast.success();
         toastr.success(response.data.message)
-        this.$router.push({name:'category'});
+        this.$router.push({name:'admin-category'});
         this.errors = {}
       }).catch((error) =>{
         if (error.response.status === 422){

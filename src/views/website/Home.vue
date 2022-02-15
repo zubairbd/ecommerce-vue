@@ -12,13 +12,8 @@
                             </a>
                         </div>
                         <ul class="list-unstyled categories no-scrollbar py-2 mb-0 text-left">
-                            <li class="category-nav-element"><a class="text-truncate text-reset py-2 px-3 d-block" href="#"><i class="fas fa-copyright mr-2"></i><span class="cat-name">Electronic Device</span></a></li>
-                            <li class="category-nav-element"><a class="text-truncate text-reset py-2 px-3 d-block" href="#"><i class="fal fa-bolt mr-2"></i><span class="cat-name">Electronic Device</span></a></li>
-                            <li class="category-nav-element"><a class="text-truncate text-reset py-2 px-3 d-block" href="#"><i class="fal fa-bolt mr-2"></i><span class="cat-name">Electronic Device</span></a></li>
-                            <li class="category-nav-element"><a class="text-truncate text-reset py-2 px-3 d-block" href="#"><i class="fal fa-bolt mr-2"></i><span class="cat-name">Electronic Device</span></a></li>
-                            <li class="category-nav-element"><a class="text-truncate text-reset py-2 px-3 d-block" href="#"><i class="fal fa-bolt mr-2"></i><span class="cat-name">Electronic Device</span></a></li>
-                            <li class="category-nav-element"><a class="text-truncate text-reset py-2 px-3 d-block" href="#"><i class="fal fa-bolt mr-2"></i><span class="cat-name">Electronic Device</span></a></li>
-                            <li class="category-nav-element"><a class="text-truncate text-reset py-2 px-3 d-block" href="#"><i class="fal fa-bolt mr-2"></i><span class="cat-name">Electronic Device</span></a></li>
+                            <li v-for="(category, ind) in categories" :key="ind"  class="category-nav-element"><a class="text-truncate text-reset py-2 px-3 d-block" href="#"><i class="fas fa-copyright mr-2"></i><span class="cat-name">Electronic Device</span></a></li>
+
                         </ul>
                     </div>
                 </div>
@@ -572,6 +567,7 @@
     <section class="feaure-section mb-4">
         <div class="container">
             <div class="px-2 py-4 px-md-4 py-md-3 bg-white shadow-sm rounded">
+
                 <div class="d-flex mb-3 align-items-baseline border-bottom">
                     <h3 class="h5 fw-700 mb-0">
                         <span class="border-bottom border-primary border-width-2 pb-3 d-inline-block">Featured Products</span>
@@ -579,13 +575,15 @@
                     <a href="javascript:void(0)" class="ml-auto mr-0 btn btn-primary btn-sm shadow-md">Top 20</a>
                 </div>
                 <div v-if="products.length > 0" class="product-carousel gutters-10 half-outside-arrow slick-initialized slick-slider">
-                    <carousel :autoplay="true" :nav="false" :items="5" :dots="false" >
 
-                        <div v-for="(product, key) in products" :key="key" class="product-item">
+                  <carousel :autoplay="true" :nav="false" :items="5" :dots="false" >
+
+                        <div v-for="product in products" :key="product.id" class="product-item">
+                          <Loader v-if="loadingStatus" />
                             <span class="badge-custom">OFF<span class="box ml-1 mr-0">&nbsp;43%</span></span>
                             <span v-if="product.product_quantity > 0" class="badge-stock">IN<span class="box mr-1 ml-0">&nbsp;STOCK</span></span>
                             <span v-if="product.product_quantity < 1" class="badge-stock-out">STOCK<span class="box mr-1 ml-0">&nbsp;OUT</span></span>
-                            <a class="product-card-link" href="#">
+                            <router-link :to="`/product/${product.product_slug}`" class="product-card-link">
                                 <div class="img-box bg-image hover-zoom hovereffect">
                                     <img class="img-responsive" :src="product.feature_image" alt="">
                                 </div>
@@ -594,9 +592,9 @@
                                     <span class="fw-700 text-primary">৳ {{product.discount}}.00</span>
                                 </div>
                                 <h3> {{product.product_name}} </h3>
-                            </a>
+                            </router-link>
                             
-                            <button :disabled="product.product_quantity < 1" class="simple-btn mt-2">add to cart</button>
+                            <button @click="addToCart(product.id)" :disabled="product.product_quantity < 1" class="simple-btn mt-2">add to cart</button>
                         </div>
                     </carousel>
                 </div>
@@ -607,14 +605,11 @@
 </template>
 
 <script>
-// import "../../assets/frontend/js/jquery-2.2.4.min.js";
-// import "../../assets/frontend/js/owl.carousel.min.js";
-// import "../../assets/frontend/js/scripts.js";
-
+import Loader from "../../components/frontend/Loader";
 import carousel from 'vue-owl-carousel'
 export default {
   name: 'Home',
-  components: { carousel },
+  components: { carousel, Loader },
 
 data(){
     return {
@@ -622,22 +617,32 @@ data(){
       path: "http://127.0.0.1:8000/uploads/images/products/"
     }
   },
+  props: ["product"],
   mounted() {
     this.$store.dispatch("getProducts");
-    this.$store.state.loadingStatus = true
+    this.$store.state.loadingStatus = true;
+    this.$store.dispatch("getActiveCategories");
   },
   computed: {
     products(){
         return this.$store.getters.products;
+    },
+    categories(){
+      return this.$store.getters.categories;
     },
     loadingStatus(){
       return this.$store.getters.loadingStatus
     },
   },
   methods: {
-    
+    addToCart(id){
+      this.$store.dispatch('addProductToCart',{
+        product: id,
+        quantity: 1
+      });
+    }
 
-    }   
+  }
 }
 </script>
 <style lang="scss">

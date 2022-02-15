@@ -65,6 +65,7 @@ export default {
 }
 </script>
 <style lang="scss">
-
+@import "../../assets/frontend/css/main.css";
+@import "../../assets/frontend/css/style.css";
 
 </style>
