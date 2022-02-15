@@ -4,7 +4,7 @@ import axios from 'axios'
 export const product = {
     state: {
         productData: [],
-        product: null,
+        product: {},
 
     },
     getters: {
@@ -22,9 +22,9 @@ export const product = {
                 console.log(error);
             })
         },
-        viewProducts(){
-            axios.get('/view-product/'  + this.$route.params.product_slug).then((response) => {
-                this.form = response.data.data
+        getProduct({commit}, productSlug){
+            axios.get(`/view-product/${productSlug}`).then((response) => {
+                commit('SET_PRODUCT', response.data.data);
             }).catch((error) =>{
                 console.log(error)
             })
@@ -35,6 +35,9 @@ export const product = {
         products(state, data){
             return state.productData = data;
         },
+        SET_PRODUCT(state, product){
+            state.product = product;
+        }
     },
 
 }

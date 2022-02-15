@@ -578,7 +578,7 @@
 
                   <carousel :autoplay="true" :nav="false" :items="5" :dots="false" >
 
-                        <div v-for="product in products" :key="product.id" class="product-item">
+                        <div v-for="product in products" :key="product.id" :product="product" class="product-item">
                           <Loader v-if="loadingStatus" />
                             <span class="badge-custom">OFF<span class="box ml-1 mr-0">&nbsp;43%</span></span>
                             <span v-if="product.product_quantity > 0" class="badge-stock">IN<span class="box mr-1 ml-0">&nbsp;STOCK</span></span>
@@ -594,7 +594,7 @@
                                 <h3> {{product.product_name}} </h3>
                             </router-link>
                             
-                            <button @click="addToCart(product.id)" :disabled="product.product_quantity < 1" class="simple-btn mt-2">add to cart</button>
+                            <button @click="addToCart()" :disabled="product.product_quantity < 1" class="simple-btn mt-2">add to cart</button>
                         </div>
                     </carousel>
                 </div>
@@ -617,7 +617,7 @@ data(){
       path: "http://127.0.0.1:8000/uploads/images/products/"
     }
   },
-  props: ["product"],
+ 
   mounted() {
     this.$store.dispatch("getProducts");
     this.$store.state.loadingStatus = true;
@@ -633,11 +633,12 @@ data(){
     loadingStatus(){
       return this.$store.getters.loadingStatus
     },
+    
   },
   methods: {
-    addToCart(id){
+    addToCart(){
       this.$store.dispatch('addProductToCart',{
-        product: id,
+        product: this.product,
         quantity: 1
       });
     }

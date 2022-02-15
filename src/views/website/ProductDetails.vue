@@ -9,16 +9,19 @@
               <div class="sticky-top z-3 row gutters-10">
                 <div class="col order-1 order-md-2">
                   <div class="carousel-box img-zoom rounded">
-                    <img src="../../assets/frontend/images/product/p-1.jpg">
+                    <img class="img-responsive" :src="product.feature_image" alt="">
                   </div>
                 </div>
-                <div class="col-12 col-md-auto w-md-80px order-2 order-md-1 mt-3 mt-md-0"></div>
+                <div class="col-12 col-md-auto w-md-80px order-2 order-md-1 mt-3 mt-md-0">
+                  
+                  <img class="img-responsive" style="width:90px" :src="product.image_two" alt="">
+                </div>
               </div>
             </div>
             <div class="col-xl-7 col-lg-6">
               <div class="text-left">
                 <h1 class="mb-2 fs-20 fw-600">
-                  Ball Gowns Party Dress BP13
+                  {{product.product_name}}
                 </h1>
                 <hr />
 
@@ -61,7 +64,7 @@
                   <div class="col-sm-9">
                     <div class="fs-16 opacity-60">
                       <del>
-                        ৳1,900.00
+                        ৳{{product.price}}.00
                         <span>/Pc</span>
                       </del>
                     </div>
@@ -72,7 +75,7 @@
                   <div class="col-sm-9">
                     <div class="">
                       <strong class="fs-20 fw-600 text-primary">
-                        ৳1,299.00
+                        ৳{{product.discount}}.00
                       </strong>
                       <span class="opacity-70">/Pc</span>
                     </div>
@@ -80,7 +83,7 @@
                 </div>
                 <hr />
                 <div class="mt-3">
-                  <button type="button" class="btn btn-soft-primary mr-2 add-to-cart fw-600" onclick="addToCart()">
+                  <button type="button" class="btn btn-soft-primary mr-2 add-to-cart fw-600" @click="addToCart()">
                     <i class="fas fa-shopping-bag"></i>
                     <span class="d-none d-md-inline-block">Add to cart</span>
                   </button>
@@ -355,37 +358,40 @@
         </div>
       </div>
     </div>
-  </section>
+    </section>
   </div>
 
 </template>
 
 <script>
-import axios from "axios";
+// import axios from "axios";
 export default {
   name: "ProductDetails",
-  data() {
-    return{
-      form: {},
-      errors:{},
-      id: this.id,
-      product_slug: this.$route.params.product_slug,
-
+  props: ["product_slug"],
+  mounted() {
+    // this.viewProduct();
+    this.$store.dispatch('getProduct', this.$route.params.product_slug)
+  },
+  computed:{
+    product(){
+      return this.$store.state.product.product;
     }
   },
-  mounted() {
-    this.viewProduct();
-  },
-
   methods:{
-    viewProduct () {
-      axios.get("/view-product/" + this.$route.params.product_slug).then((response) => {
-        // this_.form.fill(response.data.category);
-
-        console.log(response.data.data);
-      }).catch((error) =>{
-        console.log(error)
-      })
+    // viewProduct () {
+    //   axios.get("/view-product/" + this.$route.params.product_slug).then((response) => {
+    //     // this_.form.fill(response.data.category);
+    //     this.product = response.data.data
+    //     console.log(response.data.data);
+    //   }).catch((error) =>{
+    //     console.log(error)
+    //   })
+    // },
+    addToCart(){
+      this.$store.dispatch('addProductToCart',{
+        product: this.product,
+        quantity: 1
+      });
     }
   }
 

@@ -14,7 +14,7 @@
                                         <i class="fas fa-phone mr-2"></i>
                                         <span>Help line</span>  
                                         <span>+8801922-228111</span>    
-                                        </a>
+                                    </a>
                                 </li>
                                 <li class="list-inline-item mr-3 border-right border-left-0 pr-3 pl-0">
                                     <a href="https://bongobaba.com/users/login" class="text-reset d-inline-block opacity-60 py-2">Login</a>
@@ -69,13 +69,61 @@
                                 </div>
                             </div>
                             <div class="header-nav flex-grow-1 front-header-search d-flex align-items-center bg-white">
-                                <div class="position-relative d-flex flex-grow-1 ml-3 justify-content-end">
-                                    <a href="">
-                                        <span class="header-nav-link pointer cart-nav-link">
-                                            <i class="fas fa-shopping-bag"></i>
-                                            <span class="cart-qty">0</span>
-                                        </span>
-                                    </a>
+                                <div class="position-relative d-flex flex-grow-1 ml-3 justify-content-end align-items-center">
+                                    <div class="dropdown">
+                                        <a href="javascript:void(0)" class="d-flex align-items-center text-reset h-100" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <span class="header-nav-link pointer cart-nav-link mr-2">
+                                                <i class="fas fa-shopping-bag"></i>
+                                                <span class="cart-qty">{{cartItemCount}}</span>
+                                            </span>
+                                        </a>
+                                    
+                                        <div v-if="!cartItemCount" class="dropdown-menu dropdown-menu-right dropdown-menu-lg p-0 stop-propagation" style="inset: 18px auto auto 0px;">
+                                        <div class="text-center p-3">
+                                            <i class="far fa-frown fa-3x opacity-60 mb-3"></i>
+                                            <h3 class="h6 fw-700">Your Cart is empty</h3>
+                                        </div>
+                                        </div>
+                                        <div v-if="cartItemCount" class="dropdown-menu dropdown-menu-right dropdown-menu-lg p-0 stop-propagation" style="inset: 18px auto auto 0px;">
+                                            <div class="p-3 fs-15 fw-600 p-3 border-bottom">
+                                                Cart Items
+                                            </div>
+                                            <ul class="h-250px overflow-auto c-scrollbar-light list-group list-group-flush">
+                                                <li v-for="item in cart" :key="item.product.id" class="list-group-item">
+                                                    <span class="d-flex align-items-center">
+                                                        <a href="https://bongobaba.com/product/denim-printed-jacket-bv1" class="text-reset d-flex align-items-center flex-grow-1">
+                                                            <img :src="item.product.feature_image" data-src="item.product.feature_image" class="img-fit size-60px rounded lazyloaded" alt="Denim Printed Jacket BV1">
+                                                            <span class="minw-0 pl-2 flex-grow-1">
+                                                                <span class="fw-500 fs-13 mb-1 text-truncate-2">
+                                                                    {{item.product.product_name}}
+                                                                </span>
+                                                                <span class="fs-12">{{item.quantity}}x</span>
+                                                                <span class="fs-12">৳{{item.product.price}}.00</span>
+                                                            </span>
+                                                        </a>
+                                                        <span class="">
+                                                            <button onclick="removeFromCart(349)" class="btn btn-sm btn-icon stop-propagation">
+                                                                <i class="fas fa-times"></i>
+                                                            </button>
+                                                        </span>
+                                                    </span>
+                                                </li>
+                                            </ul>
+                                            <div class="px-3 py-2 fs-15 border-top d-flex justify-content-between">
+                                                <span class="opacity-60">Subtotal</span>
+                                                <span class="fw-600">৳{{cartTotalPrice}}.00</span>
+                                            </div>
+                                            <div class="px-3 py-2 text-center border-top">
+                                                <ul class="list-inline mb-0">
+                                                    <li class="list-inline-item">
+                                                        <a href="https://bongobaba.com/cart" class="btn btn-soft-primary btn-sm">
+                                                            View cart
+                                                        </a>
+                                                    </li>
+                                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <a href="">
                                         <span class="header-nav-link pointer cart-nav-link">
                                             <i class="fas fa-heart"></i>
@@ -143,11 +191,56 @@
             </header>
             
         </div>
+        <!-- Modal -->
+        <div class="modal fade" id="addSongModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" v-text="message"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 </template>
 
 <script>
+    import $ from 'jquery';
     export default {
+        
+        data() {
+            return{
+               message: 'Please help me!'
+            }
+        },
+        computed:{
+            cart(){
+                return this.$store.state.cart.cart;
+            },
+            cartItemCount(){
+                return this.$store.getters.cartItemCount;
+            },
+            cartTotalPrice(){
+                return this.$store.getters.cartTotalPrice;
+            },
+        },
+        mounted() {
+            this.$store.dispath('getCartItems');
+        },
+        methods: {
+            showAddSongModal() {
+                $('#addSongModal').modal('show');
+            }
+        }
         
     }
 </script>
