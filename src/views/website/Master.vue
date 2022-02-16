@@ -39,12 +39,12 @@
         <div class="fixed-cart-items">
             <span><i style="font-size: 18px;" class="fas fa-shopping-bag"></i></span>
             <span>
-                0<!-- -->
+                {{cartItemCount}}<!-- -->
                 items
             </span>
         </div>
         <div class="fixed-cart-price d-flex justify-content-center align-item-center">
-            <span><span>৳0</span></span>
+            <span><span>৳{{cartTotalPrice}}</span></span>
         </div>
     </button>
   </div>
@@ -60,7 +60,23 @@ import Header from '../../components/frontend/Header.vue'
 export default {
   name: 'Master',
   components: { Header },
-
+  computed:{
+    cart(){
+      return this.$store.state.cart.cart;
+    },
+    products(){
+      return this.$store.getters.cartProducts
+    },
+    cartItemCount(){
+      return this.$store.getters.cartItemCount;
+    },
+    cartTotalPrice(){
+      return this.$store.getters.cartTotalPrice;
+    },
+  },
+  mounted() {
+      // this.$store.dispatch('getCartItems');
+  },
 
 }
 </script>

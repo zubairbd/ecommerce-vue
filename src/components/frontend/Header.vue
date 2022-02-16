@@ -77,7 +77,7 @@
                                                 <span class="cart-qty">{{cartItemCount}}</span>
                                             </span>
                                         </a>
-                                    
+
                                         <div v-if="!cartItemCount" class="dropdown-menu dropdown-menu-right dropdown-menu-lg p-0 stop-propagation" style="inset: 18px auto auto 0px;">
                                         <div class="text-center p-3">
                                             <i class="far fa-frown fa-3x opacity-60 mb-3"></i>
@@ -89,7 +89,7 @@
                                                 Cart Items
                                             </div>
                                             <ul class="h-250px overflow-auto c-scrollbar-light list-group list-group-flush">
-                                                <li v-for="item in cart" :key="item.product.id" class="list-group-item">
+                                                <li v-for="item in products" :key="item.id" class="list-group-item">
                                                     <span class="d-flex align-items-center">
                                                         <a href="https://bongobaba.com/product/denim-printed-jacket-bv1" class="text-reset d-flex align-items-center flex-grow-1">
                                                             <img :src="item.product.feature_image" data-src="item.product.feature_image" class="img-fit size-60px rounded lazyloaded" alt="Denim Printed Jacket BV1">
@@ -214,7 +214,7 @@
 </template>
 
 <script>
-    import $ from 'jquery';
+    // import $ from 'jquery';
     export default {
         
         data() {
@@ -226,20 +226,21 @@
             cart(){
                 return this.$store.state.cart.cart;
             },
-            cartItemCount(){
-                return this.$store.getters.cartItemCount;
+            products(){
+              return this.$store.getters.cartProducts
             },
             cartTotalPrice(){
-                return this.$store.getters.cartTotalPrice;
+              return this.$store.getters.cartTotalPrice
+            },
+            cartItemCount(){
+              return this.$store.getters.cartItemCount;
             },
         },
         mounted() {
-            this.$store.dispath('getCartItems');
+            // this.$store.dispatch('getCartItems');
         },
         methods: {
-            showAddSongModal() {
-                $('#addSongModal').modal('show');
-            }
+
         }
         
     }

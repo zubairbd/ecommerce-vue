@@ -578,7 +578,7 @@
 
                   <carousel :autoplay="true" :nav="false" :items="5" :dots="false" >
 
-                        <div v-for="product in products" :key="product.id" :product="product" class="product-item">
+                        <div v-for="product in products" :key="product.id" class="product-item">
                           <Loader v-if="loadingStatus" />
                             <span class="badge-custom">OFF<span class="box ml-1 mr-0">&nbsp;43%</span></span>
                             <span v-if="product.product_quantity > 0" class="badge-stock">IN<span class="box mr-1 ml-0">&nbsp;STOCK</span></span>
@@ -591,10 +591,10 @@
                                     <del class="fw-600 opacity-50 mr-1">৳ {{product.price}}.00</del>
                                     <span class="fw-700 text-primary">৳ {{product.discount}}.00</span>
                                 </div>
-                                <h3> {{product.product_name}} </h3>
+                                <h3> {{product.product_name}} - {{product.product_quantity}} </h3>
                             </router-link>
                             
-                            <button @click="addToCart()" :disabled="product.product_quantity < 1" class="simple-btn mt-2">add to cart</button>
+                            <button @click="addToCart(product)" :disabled="product.product_quantity < 1" class="simple-btn mt-2">add to cart</button>
                         </div>
                     </carousel>
                 </div>
@@ -606,7 +606,7 @@
 
 <script>
 import Loader from "../../components/frontend/Loader";
-import carousel from 'vue-owl-carousel'
+import carousel from 'vue-owl-carousel';
 export default {
   name: 'Home',
   components: { carousel, Loader },
@@ -614,7 +614,8 @@ export default {
 data(){
     return {
       data:{},
-      path: "http://127.0.0.1:8000/uploads/images/products/"
+      path: "http://127.0.0.1:8000/uploads/images/products/",
+      product: {}
     }
   },
  
@@ -636,12 +637,12 @@ data(){
     
   },
   methods: {
-    addToCart(){
-      this.$store.dispatch('addProductToCart',{
-        product: this.product,
-        quantity: 1
-      });
-    }
+    addToCart(product){
+      this.$store.dispatch('addProductToCart', product);
+    },
+    // getToCart(){
+    //   this.$store.dispatch('getCartItems');
+    // }
 
   }
 }
