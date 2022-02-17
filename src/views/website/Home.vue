@@ -607,6 +607,7 @@
 <script>
 import Loader from "../../components/frontend/Loader";
 import carousel from 'vue-owl-carousel';
+import toastr from 'toastr'
 export default {
   name: 'Home',
   components: { carousel, Loader },
@@ -639,6 +640,7 @@ data(){
   methods: {
     addToCart(product){
       this.$store.dispatch('addProductToCart', product);
+      toastr.success('Product added to cart!')
     },
     // getToCart(){
     //   this.$store.dispatch('getCartItems');

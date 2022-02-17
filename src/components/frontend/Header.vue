@@ -102,7 +102,7 @@
                                                             </span>
                                                         </a>
                                                         <span class="">
-                                                            <button onclick="removeFromCart(349)" class="btn btn-sm btn-icon stop-propagation">
+                                                            <button @click="removeFromCart(item.product.id)" class="btn btn-sm btn-icon stop-propagation">
                                                                 <i class="fas fa-times"></i>
                                                             </button>
                                                         </span>
@@ -240,7 +240,9 @@
             // this.$store.dispatch('getCartItems');
         },
         methods: {
-
+          removeFromCart(id){
+            this.$store.dispatch('removeCartProduct', id)
+          }
         }
         
     }

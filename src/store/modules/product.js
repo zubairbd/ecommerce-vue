@@ -74,6 +74,9 @@ export const product = {
                 // });
             }
         },
+        removeProductFromCart(context, id){
+            context.commit('removeCartProduct', id)
+        }
 
     },
     mutations: {
@@ -95,6 +98,9 @@ export const product = {
         decrementProductInventory(state, product){
             product.quantity--
         },
+        removeCartProduct(state, id){
+            state.cart = id;
+        }
     },
 
 }

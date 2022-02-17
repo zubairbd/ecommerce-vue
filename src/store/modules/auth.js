@@ -43,7 +43,7 @@ export const auth = {
                     resolve(res)
                 }).catch((err) =>{
                     reject(err)
-                    console.log(err.response.data.errors);
+                    // console.log(err.response.data);
                 })
             })
         },
