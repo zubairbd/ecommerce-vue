@@ -242,6 +242,7 @@
         methods: {
           removeFromCart(id){
             this.$store.dispatch('removeCartProduct', id)
+            
           }
         }
         

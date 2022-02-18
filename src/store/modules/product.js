@@ -74,7 +74,7 @@ export const product = {
                 // });
             }
         },
-        removeProductFromCart(context, id){
+        removeCartProduct(context, id){
             context.commit('removeCartProduct', id)
         }
 
@@ -99,7 +99,8 @@ export const product = {
             product.quantity--
         },
         removeCartProduct(state, id){
-            state.cart = id;
+            state.cart = state.cart.filter(product => product.id !== id)
+            // state.cart = state.cart.id !== id
         }
     },
 

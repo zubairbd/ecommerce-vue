@@ -83,7 +83,7 @@
                 </div>
                 <hr />
                 <div class="mt-3">
-                  <button type="button" class="btn btn-soft-primary mr-2 add-to-cart fw-600" @click="addToCart()">
+                  <button type="button" class="btn btn-soft-primary mr-2 add-to-cart fw-600" @click="addToCart(product)">
                     <i class="fas fa-shopping-bag"></i>
                     <span class="d-none d-md-inline-block">Add to cart</span>
                   </button>
@@ -365,6 +365,7 @@
 
 <script>
 // import axios from "axios";
+import toastr from 'toastr'
 export default {
   name: "ProductDetails",
   props: ["product_slug"],
@@ -387,12 +388,16 @@ export default {
     //     console.log(error)
     //   })
     // },
-    addToCart(){
-      this.$store.dispatch('addProductToCart',{
-        product: this.product,
-        quantity: 1
-      });
-    }
+    // addToCart(){
+    //   this.$store.dispatch('addProductToCart',{
+    //     product: this.product,
+    //     quantity: 1
+    //   });
+    // },
+    addToCart(product){
+      this.$store.dispatch('addProductToCart', product);
+      toastr.success('Product added to cart!')
+    },
   }
 
 }
