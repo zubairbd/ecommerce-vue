@@ -18,6 +18,7 @@ import ProductEdit from "../views/backend/product/Edit"
 import Home from '../views/website/Home.vue'
 import Category from '../views/website/Category.vue'
 import ProductDetails from "../views/website/ProductDetails";
+import Cart from "../views/website/Cart";
 
 
 Vue.use(VueRouter)
@@ -33,7 +34,6 @@ const routes = [
         name: 'index',
         component: Home,
         meta:{
-          requiresAuth: true
         }
       },
       {
@@ -41,7 +41,13 @@ const routes = [
         name: 'product-details',
         component: ProductDetails,
         meta:{
-          requiresAuth: true
+        }
+      },
+      {
+        path: '/cart',
+        name: 'cart',
+        component: Cart,
+        meta:{
         }
       },
       {

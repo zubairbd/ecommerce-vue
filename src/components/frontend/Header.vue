@@ -17,7 +17,7 @@
                                     </a>
                                 </li>
                                 <li class="list-inline-item mr-3 border-right border-left-0 pr-3 pl-0">
-                                    <a href="https://bongobaba.com/users/login" class="text-reset d-inline-block opacity-60 py-2">Login</a>
+                                    <router-link :to="{name:'login'}" class="text-reset d-inline-block opacity-60 py-2">Login</router-link>
                                 </li>
                                 <li class="list-inline-item">
                                     <a href="https://bongobaba.com/users/registration" class="text-reset d-inline-block opacity-60 py-2">Registration</a>
@@ -91,7 +91,7 @@
                                             <ul class="h-250px overflow-auto c-scrollbar-light list-group list-group-flush">
                                                 <li v-for="item in products" :key="item.id" class="list-group-item">
                                                     <span class="d-flex align-items-center">
-                                                        <a href="https://bongobaba.com/product/denim-printed-jacket-bv1" class="text-reset d-flex align-items-center flex-grow-1">
+                                                        <router-link :to="`/product/${item.product.product_slug}`" class="text-reset d-flex align-items-center flex-grow-1">
                                                             <img :src="item.product.feature_image" data-src="item.product.feature_image" class="img-fit size-60px rounded lazyloaded" alt="Denim Printed Jacket BV1">
                                                             <span class="minw-0 pl-2 flex-grow-1">
                                                                 <span class="fw-500 fs-13 mb-1 text-truncate-2">
@@ -100,7 +100,7 @@
                                                                 <span class="fs-12">{{item.quantity}}x</span>
                                                                 <span class="fs-12">৳{{item.product.price}}.00</span>
                                                             </span>
-                                                        </a>
+                                                        </router-link>
                                                         <span class="">
                                                             <button @click="removeFromCart(item.product.id)" class="btn btn-sm btn-icon stop-propagation">
                                                                 <i class="fas fa-times"></i>
@@ -116,11 +116,16 @@
                                             <div class="px-3 py-2 text-center border-top">
                                                 <ul class="list-inline mb-0">
                                                     <li class="list-inline-item">
-                                                        <a href="https://bongobaba.com/cart" class="btn btn-soft-primary btn-sm">
+                                                        <router-link to="/cart" class="btn btn-soft-primary btn-sm">
                                                             View cart
-                                                        </a>
+                                                        </router-link>
                                                     </li>
-                                                                </ul>
+                                                    <li class="list-inline-item">
+                                                        <router-link v-show="ChekcoutShow" to="/checkout" class="btn btn-primary btn-sm">
+                                                            Checkout
+                                                        </router-link>
+                                                    </li>
+                                                </ul>
                                             </div>
                                         </div>
                                     </div>
@@ -191,24 +196,7 @@
             </header>
             
         </div>
-        <!-- Modal -->
-        <div class="modal fade" id="addSongModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body" v-text="message"></div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
-                </div>
-            </div>
-        </div>
+    
 
     </div>
 </template>
@@ -219,7 +207,7 @@
         
         data() {
             return{
-               message: 'Please help me!'
+               ChekcoutShow: false
             }
         },
         computed:{
@@ -233,7 +221,7 @@
               return this.$store.getters.cartTotalPrice
             },
             cartItemCount(){
-              return this.$store.getters.cartItemCount;
+              return this.$store.getters.cartItem;
             },
         },
         mounted() {
@@ -244,7 +232,12 @@
             this.$store.dispatch('removeCartProduct', id)
             
           }
-        }
+        },
+        created() {
+            if (this.$store.getters.loggedIn) {
+            this.ChekcoutShow = true;
+            }
+        },
         
     }
 </script>

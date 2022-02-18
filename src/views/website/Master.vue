@@ -45,6 +45,7 @@
         </div>
         <div class="fixed-cart-price d-flex justify-content-center align-item-center">
             <span><span>৳{{cartTotalPrice}}</span></span>
+            
         </div>
     </button>
   </div>
@@ -68,7 +69,7 @@ export default {
       return this.$store.getters.cartProducts
     },
     cartItemCount(){
-      return this.$store.getters.cartItemCount;
+      return this.$store.getters.cartItem;
     },
     cartTotalPrice(){
       return this.$store.getters.cartTotalPrice;

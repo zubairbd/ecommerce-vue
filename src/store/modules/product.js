@@ -32,10 +32,13 @@ export const product = {
             // })
             // return total
 
-            return getters.cartProducts.reduce((total, product) => total+= product.product.price * product.quantity, 0)
+            return getters.cartProducts.reduce((total, product) => total + product.product.price * product.quantity, 0)
         },
         cartItemCount(state){
             return state.cart.length;
+        },
+        cartItem(state, gretters){
+            return gretters.cartProducts.reduce((cartTotal, product) => cartTotal + product.quantity, 0);
         }
 
 
@@ -76,7 +79,11 @@ export const product = {
         },
         removeCartProduct(context, id){
             context.commit('removeCartProduct', id)
+        },
+        itemIncrementCart(context, id){
+            context.commit('itemCartIncreement', id)
         }
+        
 
     },
     mutations: {
@@ -100,6 +107,10 @@ export const product = {
         },
         removeCartProduct(state, id){
             state.cart = state.cart.filter(product => product.id !== id)
+            // state.cart = state.cart.id !== id
+        },
+        itemCartIncreement(state){
+            state.cart = state.cart.filter(product => product.id == product.quantity++)
             // state.cart = state.cart.id !== id
         }
     },
