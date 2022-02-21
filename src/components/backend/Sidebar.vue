@@ -18,7 +18,7 @@
       <li class="nav-item"><router-link :to="{name:'brands'}" active-class="active" class="nav-link">
         <div class="nav-icon"><i class="cil-library-add"></i></div>Brands</router-link>
       </li>
-      <li class="nav-item"><router-link :to="{name:'products'}" active-class="active" class="nav-link">
+      <li class="nav-item"><router-link :to="{name:'admin-products'}" active-class="active" class="nav-link">
         <div class="nav-icon"><i class="cil-cart"></i></div>Products</router-link>
       </li>
       <li class="nav-item"><a class="nav-link" href="typography.html">

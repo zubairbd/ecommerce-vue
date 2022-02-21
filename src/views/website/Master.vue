@@ -62,9 +62,6 @@ export default {
   name: 'Master',
   components: { Header },
   computed:{
-    cart(){
-      return this.$store.state.cart.cart;
-    },
     products(){
       return this.$store.getters.cartProducts
     },
@@ -82,7 +79,9 @@ export default {
 }
 </script>
 <style lang="scss">
+
 @import "../../assets/frontend/css/main.css";
 @import "../../assets/frontend/css/style.css";
+
 
 </style>

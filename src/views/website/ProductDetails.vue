@@ -147,217 +147,217 @@
     </section>
 
     <section class="mb-4">
-    <div class="container">
-      <div class="row gutters-10">
-        <div class="col-xl-3 order-1 order-xl-0">
-          <div class="bg-white rounded shadow-sm mb-3">
-            <div class="p-3 border-bottom fs-16 fw-600">
-              Top Selling Products
-            </div>
-            <div class="p-3">
-              <ul class="list-group list-group-flush">
-                <li class="py-3 px-0 list-group-item border-light">
-                  <div class="row gutters-10 align-items-center">
-                    <div class="col-5">
-                      <a href="https://bongobaba.com/product/nihar-anti-hairfall-5-seeds-hair-oil-100ml-75gm-soap-free-m1076" class="d-block text-reset">
-                        <img
-                            class="img-fit h-xxl-110px h-xl-80px h-120px ls-is-cached lazyloaded"
-                            src="https://bongobaba.com/public/uploads/all/55Ipak9wGTZMqCP2z46q1E6E8ekvIO6O2CYWYphR.jpg"
-                            data-src="https://bongobaba.com/public/uploads/all/55Ipak9wGTZMqCP2z46q1E6E8ekvIO6O2CYWYphR.jpg"
-                            alt="Nihar Anti Hairfall 5 Seeds Hair Oil 100ml (75gm Soap Free) m1076"
-                            onerror="this.onerror=null;this.src='https://bongobaba.com/public/assets/img/placeholder.jpg';"
-                        />
-                      </a>
-                    </div>
-                    <div class="col-7 text-left">
-                      <h4 class="fs-13 text-truncate-2">
+      <div class="container">
+        <div class="row gutters-10">
+          <div class="col-xl-3 order-1 order-xl-0">
+            <div class="bg-white rounded shadow-sm mb-3">
+              <div class="p-3 border-bottom fs-16 fw-600">
+                Top Selling Products
+              </div>
+              <div class="p-3">
+                <ul class="list-group list-group-flush">
+                  <li class="py-3 px-0 list-group-item border-light">
+                    <div class="row gutters-10 align-items-center">
+                      <div class="col-5">
                         <a href="https://bongobaba.com/product/nihar-anti-hairfall-5-seeds-hair-oil-100ml-75gm-soap-free-m1076" class="d-block text-reset">
-                          Nihar Anti Hairfall 5 Seeds Hair Oil 100ml (75gm Soap Free) m1076
+                          <img
+                              class="img-fit h-xxl-110px h-xl-80px h-120px ls-is-cached lazyloaded"
+                              src="https://bongobaba.com/public/uploads/all/55Ipak9wGTZMqCP2z46q1E6E8ekvIO6O2CYWYphR.jpg"
+                              data-src="https://bongobaba.com/public/uploads/all/55Ipak9wGTZMqCP2z46q1E6E8ekvIO6O2CYWYphR.jpg"
+                              alt="Nihar Anti Hairfall 5 Seeds Hair Oil 100ml (75gm Soap Free) m1076"
+                              onerror="this.onerror=null;this.src='https://bongobaba.com/public/assets/img/placeholder.jpg';"
+                          />
                         </a>
-                      </h4>
-                      <div class="rating rating-sm mt-1"><i class="las la-star"></i><i class="las la-star"></i><i class="las la-star"></i><i class="las la-star"></i><i class="las la-star"></i></div>
-                      <div class="mt-2">
-                        <span class="fs-17 fw-600 text-primary">৳110.00</span>
+                      </div>
+                      <div class="col-7 text-left">
+                        <h4 class="fs-13 text-truncate-2">
+                          <a href="https://bongobaba.com/product/nihar-anti-hairfall-5-seeds-hair-oil-100ml-75gm-soap-free-m1076" class="d-block text-reset">
+                            Nihar Anti Hairfall 5 Seeds Hair Oil 100ml (75gm Soap Free) m1076
+                          </a>
+                        </h4>
+                        <div class="rating rating-sm mt-1"><i class="las la-star"></i><i class="las la-star"></i><i class="las la-star"></i><i class="las la-star"></i><i class="las la-star"></i></div>
+                        <div class="mt-2">
+                          <span class="fs-17 fw-600 text-primary">৳110.00</span>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </li>
-                <li class="py-3 px-0 list-group-item border-light">
-                  <div class="row gutters-10 align-items-center">
-                    <div class="col-5">
-                      <a href="https://bongobaba.com/product/lg-electric-kettle-1" class="d-block text-reset">
-                        <img
-                            class="img-fit h-xxl-110px h-xl-80px h-120px ls-is-cached lazyloaded"
-                            src="https://bongobaba.com/public/uploads/all/0ZyPlQiT08ylo3SX5XMzsvlMHB6ZdRzMEMGUp9hb.jpg"
-                            data-src="https://bongobaba.com/public/uploads/all/0ZyPlQiT08ylo3SX5XMzsvlMHB6ZdRzMEMGUp9hb.jpg"
-                            alt="LG Electric Kettle A201"
-                            onerror="this.onerror=null;this.src='https://bongobaba.com/public/assets/img/placeholder.jpg';"
-                        />
-                      </a>
-                    </div>
-                    <div class="col-7 text-left">
-                      <h4 class="fs-13 text-truncate-2">
-                        <a href="https://bongobaba.com/product/lg-electric-kettle-1" class="d-block text-reset">LG Electric Kettle A201</a>
-                      </h4>
-                      <div class="rating rating-sm mt-1"><i class="las la-star"></i><i class="las la-star"></i><i class="las la-star"></i><i class="las la-star"></i><i class="las la-star"></i></div>
-                      <div class="mt-2">
-                        <span class="fs-17 fw-600 text-primary">৳585.00</span>
+                  </li>
+                  <li class="py-3 px-0 list-group-item border-light">
+                    <div class="row gutters-10 align-items-center">
+                      <div class="col-5">
+                        <a href="https://bongobaba.com/product/lg-electric-kettle-1" class="d-block text-reset">
+                          <img
+                              class="img-fit h-xxl-110px h-xl-80px h-120px ls-is-cached lazyloaded"
+                              src="https://bongobaba.com/public/uploads/all/0ZyPlQiT08ylo3SX5XMzsvlMHB6ZdRzMEMGUp9hb.jpg"
+                              data-src="https://bongobaba.com/public/uploads/all/0ZyPlQiT08ylo3SX5XMzsvlMHB6ZdRzMEMGUp9hb.jpg"
+                              alt="LG Electric Kettle A201"
+                              onerror="this.onerror=null;this.src='https://bongobaba.com/public/assets/img/placeholder.jpg';"
+                          />
+                        </a>
+                      </div>
+                      <div class="col-7 text-left">
+                        <h4 class="fs-13 text-truncate-2">
+                          <a href="https://bongobaba.com/product/lg-electric-kettle-1" class="d-block text-reset">LG Electric Kettle A201</a>
+                        </h4>
+                        <div class="rating rating-sm mt-1"><i class="las la-star"></i><i class="las la-star"></i><i class="las la-star"></i><i class="las la-star"></i><i class="las la-star"></i></div>
+                        <div class="mt-2">
+                          <span class="fs-17 fw-600 text-primary">৳585.00</span>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </li>
-                <li class="py-3 px-0 list-group-item border-light">
-                  <div class="row gutters-10 align-items-center">
-                    <div class="col-5">
-                      <a href="https://bongobaba.com/product/htc-1103-hair-trimmer" class="d-block text-reset">
-                        <img
-                            class="img-fit h-xxl-110px h-xl-80px h-120px ls-is-cached lazyloaded"
-                            src="https://bongobaba.com/public/uploads/all/VtpU9MCRNu6tMt1IybvabKlLvvmixjTSjQtKdrtX.jpg"
-                            data-src="https://bongobaba.com/public/uploads/all/VtpU9MCRNu6tMt1IybvabKlLvvmixjTSjQtKdrtX.jpg"
-                            alt="HTC 1103 Hair Trimmer"
-                            onerror="this.onerror=null;this.src='https://bongobaba.com/public/assets/img/placeholder.jpg';"
-                        />
-                      </a>
-                    </div>
-                    <div class="col-7 text-left">
-                      <h4 class="fs-13 text-truncate-2">
-                        <a href="https://bongobaba.com/product/htc-1103-hair-trimmer" class="d-block text-reset">HTC 1103 Hair Trimmer</a>
-                      </h4>
-                      <div class="rating rating-sm mt-1"><i class="las la-star"></i><i class="las la-star"></i><i class="las la-star"></i><i class="las la-star"></i><i class="las la-star"></i></div>
-                      <div class="mt-2">
-                        <span class="fs-17 fw-600 text-primary">৳530.00</span>
+                  </li>
+                  <li class="py-3 px-0 list-group-item border-light">
+                    <div class="row gutters-10 align-items-center">
+                      <div class="col-5">
+                        <a href="https://bongobaba.com/product/htc-1103-hair-trimmer" class="d-block text-reset">
+                          <img
+                              class="img-fit h-xxl-110px h-xl-80px h-120px ls-is-cached lazyloaded"
+                              src="https://bongobaba.com/public/uploads/all/VtpU9MCRNu6tMt1IybvabKlLvvmixjTSjQtKdrtX.jpg"
+                              data-src="https://bongobaba.com/public/uploads/all/VtpU9MCRNu6tMt1IybvabKlLvvmixjTSjQtKdrtX.jpg"
+                              alt="HTC 1103 Hair Trimmer"
+                              onerror="this.onerror=null;this.src='https://bongobaba.com/public/assets/img/placeholder.jpg';"
+                          />
+                        </a>
+                      </div>
+                      <div class="col-7 text-left">
+                        <h4 class="fs-13 text-truncate-2">
+                          <a href="https://bongobaba.com/product/htc-1103-hair-trimmer" class="d-block text-reset">HTC 1103 Hair Trimmer</a>
+                        </h4>
+                        <div class="rating rating-sm mt-1"><i class="las la-star"></i><i class="las la-star"></i><i class="las la-star"></i><i class="las la-star"></i><i class="las la-star"></i></div>
+                        <div class="mt-2">
+                          <span class="fs-17 fw-600 text-primary">৳530.00</span>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </li>
-                <li class="py-3 px-0 list-group-item border-light">
-                  <div class="row gutters-10 align-items-center">
-                    <div class="col-5">
-                      <a href="https://bongobaba.com/product/joefox-men-luxury-waterproof-quartz-watch-model-jfx1730-1" class="d-block text-reset">
-                        <img
-                            class="img-fit h-xxl-110px h-xl-80px h-120px ls-is-cached lazyloaded"
-                            src="https://bongobaba.com/public/uploads/all/GEqy5wbgCXFXvAZxl6LPmNd0wZuCVXRwaHNufkKR.jpg"
-                            data-src="https://bongobaba.com/public/uploads/all/GEqy5wbgCXFXvAZxl6LPmNd0wZuCVXRwaHNufkKR.jpg"
-                            alt="Joefox Men Luxury Waterproof Quartz Watch Model: JFX1730"
-                            onerror="this.onerror=null;this.src='https://bongobaba.com/public/assets/img/placeholder.jpg';"
-                        />
-                      </a>
-                    </div>
-                    <div class="col-7 text-left">
-                      <h4 class="fs-13 text-truncate-2">
-                        <a href="https://bongobaba.com/product/joefox-men-luxury-waterproof-quartz-watch-model-jfx1730-1" class="d-block text-reset">Joefox Men Luxury Waterproof Quartz Watch Model: JFX1730</a>
-                      </h4>
-                      <div class="rating rating-sm mt-1"><i class="las la-star"></i><i class="las la-star"></i><i class="las la-star"></i><i class="las la-star"></i><i class="las la-star"></i></div>
-                      <div class="mt-2">
-                        <span class="fs-17 fw-600 text-primary">৳899.00</span>
+                  </li>
+                  <li class="py-3 px-0 list-group-item border-light">
+                    <div class="row gutters-10 align-items-center">
+                      <div class="col-5">
+                        <a href="https://bongobaba.com/product/joefox-men-luxury-waterproof-quartz-watch-model-jfx1730-1" class="d-block text-reset">
+                          <img
+                              class="img-fit h-xxl-110px h-xl-80px h-120px ls-is-cached lazyloaded"
+                              src="https://bongobaba.com/public/uploads/all/GEqy5wbgCXFXvAZxl6LPmNd0wZuCVXRwaHNufkKR.jpg"
+                              data-src="https://bongobaba.com/public/uploads/all/GEqy5wbgCXFXvAZxl6LPmNd0wZuCVXRwaHNufkKR.jpg"
+                              alt="Joefox Men Luxury Waterproof Quartz Watch Model: JFX1730"
+                              onerror="this.onerror=null;this.src='https://bongobaba.com/public/assets/img/placeholder.jpg';"
+                          />
+                        </a>
+                      </div>
+                      <div class="col-7 text-left">
+                        <h4 class="fs-13 text-truncate-2">
+                          <a href="https://bongobaba.com/product/joefox-men-luxury-waterproof-quartz-watch-model-jfx1730-1" class="d-block text-reset">Joefox Men Luxury Waterproof Quartz Watch Model: JFX1730</a>
+                        </h4>
+                        <div class="rating rating-sm mt-1"><i class="las la-star"></i><i class="las la-star"></i><i class="las la-star"></i><i class="las la-star"></i><i class="las la-star"></i></div>
+                        <div class="mt-2">
+                          <span class="fs-17 fw-600 text-primary">৳899.00</span>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </li>
-                <li class="py-3 px-0 list-group-item border-light">
-                  <div class="row gutters-10 align-items-center">
-                    <div class="col-5">
-                      <a href="https://bongobaba.com/product/acer-tmp249-g3-m-i5-8250u-laptop-without-bag" class="d-block text-reset">
-                        <img
-                            class="img-fit h-xxl-110px h-xl-80px h-120px ls-is-cached lazyloaded"
-                            src="https://bongobaba.com/public/uploads/all/TFxusZIx5AHamKfsjp4CO6ogA6CZ2ZVuDdSZeiot.jpg"
-                            data-src="https://bongobaba.com/public/uploads/all/TFxusZIx5AHamKfsjp4CO6ogA6CZ2ZVuDdSZeiot.jpg"
-                            alt="Acer TMP249 G3 M I5-8250U Laptop (Without Bag)"
-                            onerror="this.onerror=null;this.src='https://bongobaba.com/public/assets/img/placeholder.jpg';"
-                        />
-                      </a>
-                    </div>
-                    <div class="col-7 text-left">
-                      <h4 class="fs-13 text-truncate-2">
-                        <a href="https://bongobaba.com/product/acer-tmp249-g3-m-i5-8250u-laptop-without-bag" class="d-block text-reset">Acer TMP249 G3 M I5-8250U Laptop (Without Bag)</a>
-                      </h4>
-                      <div class="rating rating-sm mt-1"><i class="las la-star"></i><i class="las la-star"></i><i class="las la-star"></i><i class="las la-star"></i><i class="las la-star"></i></div>
-                      <div class="mt-2">
-                        <span class="fs-17 fw-600 text-primary">৳66,000.00</span>
+                  </li>
+                  <li class="py-3 px-0 list-group-item border-light">
+                    <div class="row gutters-10 align-items-center">
+                      <div class="col-5">
+                        <a href="https://bongobaba.com/product/acer-tmp249-g3-m-i5-8250u-laptop-without-bag" class="d-block text-reset">
+                          <img
+                              class="img-fit h-xxl-110px h-xl-80px h-120px ls-is-cached lazyloaded"
+                              src="https://bongobaba.com/public/uploads/all/TFxusZIx5AHamKfsjp4CO6ogA6CZ2ZVuDdSZeiot.jpg"
+                              data-src="https://bongobaba.com/public/uploads/all/TFxusZIx5AHamKfsjp4CO6ogA6CZ2ZVuDdSZeiot.jpg"
+                              alt="Acer TMP249 G3 M I5-8250U Laptop (Without Bag)"
+                              onerror="this.onerror=null;this.src='https://bongobaba.com/public/assets/img/placeholder.jpg';"
+                          />
+                        </a>
+                      </div>
+                      <div class="col-7 text-left">
+                        <h4 class="fs-13 text-truncate-2">
+                          <a href="https://bongobaba.com/product/acer-tmp249-g3-m-i5-8250u-laptop-without-bag" class="d-block text-reset">Acer TMP249 G3 M I5-8250U Laptop (Without Bag)</a>
+                        </h4>
+                        <div class="rating rating-sm mt-1"><i class="las la-star"></i><i class="las la-star"></i><i class="las la-star"></i><i class="las la-star"></i><i class="las la-star"></i></div>
+                        <div class="mt-2">
+                          <span class="fs-17 fw-600 text-primary">৳66,000.00</span>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </li>
-                <li class="py-3 px-0 list-group-item border-light">
-                  <div class="row gutters-10 align-items-center">
-                    <div class="col-5">
-                      <a href="https://bongobaba.com/product/real-madrid-grey-stock-limited-rz-2" class="d-block text-reset">
-                        <img
-                            class="img-fit h-xxl-110px h-xl-80px h-120px lazyloaded"
-                            src="https://bongobaba.com/public/uploads/all/g33kEP0SImT9AWjYw7NQURvbEeSG3a8pPXVkRF1o.jpg"
-                            data-src="https://bongobaba.com/public/uploads/all/g33kEP0SImT9AWjYw7NQURvbEeSG3a8pPXVkRF1o.jpg"
-                            alt="Real Madrid Grey stock limited  RZ-2"
-                            onerror="this.onerror=null;this.src='https://bongobaba.com/public/assets/img/placeholder.jpg';"
-                        />
-                      </a>
-                    </div>
-                    <div class="col-7 text-left">
-                      <h4 class="fs-13 text-truncate-2">
-                        <a href="https://bongobaba.com/product/real-madrid-grey-stock-limited-rz-2" class="d-block text-reset">Real Madrid Grey stock limited RZ-2</a>
-                      </h4>
-                      <div class="rating rating-sm mt-1"><i class="las la-star"></i><i class="las la-star"></i><i class="las la-star"></i><i class="las la-star"></i><i class="las la-star"></i></div>
-                      <div class="mt-2">
-                        <span class="fs-17 fw-600 text-primary">৳370.00</span>
+                  </li>
+                  <li class="py-3 px-0 list-group-item border-light">
+                    <div class="row gutters-10 align-items-center">
+                      <div class="col-5">
+                        <a href="https://bongobaba.com/product/real-madrid-grey-stock-limited-rz-2" class="d-block text-reset">
+                          <img
+                              class="img-fit h-xxl-110px h-xl-80px h-120px lazyloaded"
+                              src="https://bongobaba.com/public/uploads/all/g33kEP0SImT9AWjYw7NQURvbEeSG3a8pPXVkRF1o.jpg"
+                              data-src="https://bongobaba.com/public/uploads/all/g33kEP0SImT9AWjYw7NQURvbEeSG3a8pPXVkRF1o.jpg"
+                              alt="Real Madrid Grey stock limited  RZ-2"
+                              onerror="this.onerror=null;this.src='https://bongobaba.com/public/assets/img/placeholder.jpg';"
+                          />
+                        </a>
+                      </div>
+                      <div class="col-7 text-left">
+                        <h4 class="fs-13 text-truncate-2">
+                          <a href="https://bongobaba.com/product/real-madrid-grey-stock-limited-rz-2" class="d-block text-reset">Real Madrid Grey stock limited RZ-2</a>
+                        </h4>
+                        <div class="rating rating-sm mt-1"><i class="las la-star"></i><i class="las la-star"></i><i class="las la-star"></i><i class="las la-star"></i><i class="las la-star"></i></div>
+                        <div class="mt-2">
+                          <span class="fs-17 fw-600 text-primary">৳370.00</span>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-9 order-0 order-xl-1">
-          <div class="bg-white mb-3 shadow-sm rounded">
-            <div class="nav border-bottom aiz-nav-tabs">
-              <a href="#tab_default_1" data-toggle="tab" class="p-3 fs-16 fw-600 text-reset show active">Description</a>
-              <a href="#tab_default_4" data-toggle="tab" class="p-3 fs-16 fw-600 text-reset">Reviews</a>
-            </div>
-
-            <div class="tab-content pt-0">
-              <div class="tab-pane fade active show" id="tab_default_1">
-                <div class="p-4">
-                  <div class="mw-100 overflow-hidden text-left aiz-editor-data">
-                    <ul>
-                      <li>
-                                            <span
-                                                data-sheets-value='{"1":2,"2":"Age: Age 3 year to 9 years"}'
-                                                data-sheets-userformat='{"2":4867,"3":{"1":0},"4":{"1":2,"2":16777215},"11":4,"12":0,"15":"Arial"}'
-                                                style="font-size: 10pt; font-family: Arial;"
-                                            >
-                                                Age: Age 3 year to 9 years
-                                            </span>
-                        <br />
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-
-              <div class="tab-pane fade" id="tab_default_2">
-                <div class="p-4">
-                  <div class="embed-responsive embed-responsive-16by9"></div>
-                </div>
-              </div>
-              <div class="tab-pane fade" id="tab_default_3">
-                <div class="p-4 text-center">
-                  <a href="" class="btn btn-primary">Download</a>
-                </div>
-              </div>
-              <div class="tab-pane fade" id="tab_default_4">
-                <div class="p-4">
-                  <ul class="list-group list-group-flush"></ul>
-
-                  <div class="text-center fs-18 opacity-70">
-                    There have been no reviews for this product yet.
-                  </div>
-                </div>
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
+          <div class="col-xl-9 order-0 order-xl-1">
+            <div class="bg-white mb-3 shadow-sm rounded">
+              <div class="nav border-bottom aiz-nav-tabs">
+                <a href="#tab_default_1" data-toggle="tab" class="p-3 fs-16 fw-600 text-reset show active">Description</a>
+                <a href="#tab_default_4" data-toggle="tab" class="p-3 fs-16 fw-600 text-reset">Reviews</a>
+              </div>
 
+              <div class="tab-content pt-0">
+                <div class="tab-pane fade active show" id="tab_default_1">
+                  <div class="p-4">
+                    <div class="mw-100 overflow-hidden text-left aiz-editor-data">
+                      <ul>
+                        <li>
+                                              <span
+                                                  data-sheets-value='{"1":2,"2":"Age: Age 3 year to 9 years"}'
+                                                  data-sheets-userformat='{"2":4867,"3":{"1":0},"4":{"1":2,"2":16777215},"11":4,"12":0,"15":"Arial"}'
+                                                  style="font-size: 10pt; font-family: Arial;"
+                                              >
+                                                  Age: Age 3 year to 9 years
+                                              </span>
+                          <br />
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="tab-pane fade" id="tab_default_2">
+                  <div class="p-4">
+                    <div class="embed-responsive embed-responsive-16by9"></div>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="tab_default_3">
+                  <div class="p-4 text-center">
+                    <a href="" class="btn btn-primary">Download</a>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="tab_default_4">
+                  <div class="p-4">
+                    <ul class="list-group list-group-flush"></ul>
+
+                    <div class="text-center fs-18 opacity-70">
+                      There have been no reviews for this product yet.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
         </div>
       </div>
-    </div>
     </section>
   </div>
 

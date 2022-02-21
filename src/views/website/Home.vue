@@ -578,7 +578,7 @@
 
                   <carousel :autoplay="true" :nav="false" :items="5" :dots="false" >
 
-                        <div v-for="product in products" :key="product.id" class="product-item">
+                        <div v-for="product in products" :key="product.id" class="product-item mt-4">
                           <Loader v-if="loadingStatus" />
                             <span class="badge-custom">OFF<span class="box ml-1 mr-0">&nbsp;43%</span></span>
                             <span v-if="product.product_quantity > 0" class="badge-stock">IN<span class="box mr-1 ml-0">&nbsp;STOCK</span></span>

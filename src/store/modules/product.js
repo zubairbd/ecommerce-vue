@@ -82,7 +82,17 @@ export const product = {
         },
         itemIncrementCart(context, id){
             context.commit('itemCartIncreement', id)
-        }
+        },
+
+        getActiveProducts(data){
+            axios.get("./get-active-products").then((response)=> {
+                data.commit("products", response.data.data.data);
+                setTimeout(() => {data.commit("loadingStatus", false) }, 1000)
+
+            }).catch((error)=> {
+                console.log(error);
+            })
+        },
         
 
     },
@@ -109,7 +119,7 @@ export const product = {
             state.cart = state.cart.filter(product => product.id !== id)
             // state.cart = state.cart.id !== id
         },
-        itemCartIncreement(state){
+        itemCartIncreement(state,){
             state.cart = state.cart.filter(product => product.id == product.quantity++)
             // state.cart = state.cart.id !== id
         }

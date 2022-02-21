@@ -6,7 +6,7 @@
           <div class="card mb-4">
           <form @submit.prevent="updateProduct">
             <div class="card-header bg-warning">Product Add
-              <span><router-link :to="{name:'products'}" class="btn btn-info btn-sm float-end">Product Manage</router-link></span>
+              <span><router-link :to="{name:'admin-products'}" class="btn btn-info btn-sm float-end">Product Manage</router-link></span>
             </div>
             <div class="card-body">
                 <div class="row">

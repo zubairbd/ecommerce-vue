@@ -92,7 +92,7 @@
                                                 <li v-for="item in products" :key="item.id" class="list-group-item">
                                                     <span class="d-flex align-items-center">
                                                         <router-link :to="`/product/${item.product.product_slug}`" class="text-reset d-flex align-items-center flex-grow-1">
-                                                            <img :src="item.product.feature_image" data-src="item.product.feature_image" class="img-fit size-60px rounded lazyloaded" alt="Denim Printed Jacket BV1">
+                                                            <img :src="item.product.feature_image" data-src="item.product.feature_image" class="size-60px rounded lazyloaded" alt="Denim Printed Jacket BV1">
                                                             <span class="minw-0 pl-2 flex-grow-1">
                                                                 <span class="fw-500 fs-13 mb-1 text-truncate-2">
                                                                     {{item.product.product_name}}
@@ -211,9 +211,6 @@
             }
         },
         computed:{
-            cart(){
-                return this.$store.state.cart.cart;
-            },
             products(){
               return this.$store.getters.cartProducts
             },

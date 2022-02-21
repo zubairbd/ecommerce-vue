@@ -19,12 +19,14 @@ import Home from '../views/website/Home.vue'
 import Category from '../views/website/Category.vue'
 import ProductDetails from "../views/website/ProductDetails";
 import Cart from "../views/website/Cart";
+import Products from "../views/website/Products";
 
 
 Vue.use(VueRouter)
 
 const routes = [
   {
+    // Frontend Routes ----------------------------------------------------------------------------
     path: '/',
     name: 'Master',
     component: () => import('../views/website/Master'),
@@ -55,9 +57,15 @@ const routes = [
         name: 'categories',
         component: Category,
         meta:{
-          requiresAuth: true
         }
-      }
+      },
+      {
+        path: '/products',
+        name: 'products',
+        component: Products,
+        meta:{
+        }
+      },
     ]
   },
   {
@@ -71,7 +79,7 @@ const routes = [
 
 
 
-  //Admin Routes
+  //Admin Routes -----------------------------------------------------------------------
   {
     path: '/admin/',
     component: () => import('../views/backend/Index'),
@@ -164,7 +172,7 @@ const routes = [
       // Product Route
       {
         path: '/admin/products',
-        name: 'products',
+        name: 'admin-products',
         component: ProductManage,
         meta:{
           requiresAuth: true
