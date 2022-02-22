@@ -32,8 +32,9 @@
                                     </div>
                                     <div class="p-md-3 p-2 text-left align-items-baseline">
                                         <div class="fs-15 px-2">
-                                            <del class="fw-600 opacity-50 mr-2">৳ {{product.price}}.00</del>
-                                            <span class="fw-700 text-primary">৳ {{product.discount}}.00</span>
+                                            <del v-if="product.discount !== null" class="fw-600 opacity-50 mr-2">৳ {{product.price}}.00</del>
+                                            <span v-if="product.discount == null" class="fw-700 text-primary">৳ {{product.price}}.00</span>
+                                            <span v-if="product.discount !== null" class="fw-700 text-primary">৳ {{product.discount}}.00</span>
                                         </div>
                                         <h3 class="fs-16 mt-2 px-2 text-truncate-2"> {{product.product_name}} - {{product.product_quantity}} </h3>
                                     </div>
@@ -59,9 +60,9 @@
 </template>
 
 <script>
-import Pagination from 'laravel-vue-pagination';
-import Loader from "../../components/frontend/Loader";
-import toastr from 'toastr'
+    import Pagination from 'laravel-vue-pagination';
+    import Loader from "../../components/frontend/Loader";
+    import toastr from 'toastr'
     export default {
         components: { Loader, Pagination },
         data() {

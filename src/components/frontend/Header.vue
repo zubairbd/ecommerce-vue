@@ -98,7 +98,8 @@
                                                                     {{item.product.product_name}}
                                                                 </span>
                                                                 <span class="fs-12">{{item.quantity}}x</span>
-                                                                <span class="fs-12">৳{{item.product.price}}.00</span>
+                                                                <span v-if="item.product.discount == null" class="fs-12">৳{{item.product.price}}.00</span>
+                                                                <span v-if="item.product.discount !== null" class="fs-12">৳{{item.product.discount}}.00</span>
                                                             </span>
                                                         </router-link>
                                                         <span class="">

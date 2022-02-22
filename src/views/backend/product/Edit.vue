@@ -175,7 +175,7 @@ export default {
       axios.post(`/update-product/${this.id}`, this.form).then((response) =>{
         // this.$toast.success();
         toastr.success(response.data.message)
-        this.$router.push({name:'products'});
+        this.$router.push({name:'admin-products'});
         this.errors = {}
       }).catch((error) =>{
         if (error.response.status === 422){

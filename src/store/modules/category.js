@@ -42,6 +42,7 @@ export const category = {
                 console.log(error);
             })
         },
+
     },
     mutations: {
         categories(state, data){

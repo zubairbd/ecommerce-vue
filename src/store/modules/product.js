@@ -32,7 +32,11 @@ export const product = {
             // })
             // return total
 
-            return getters.cartProducts.reduce((total, product) => total + product.product.price * product.quantity, 0)
+            return getters.cartProducts.reduce(function (total, product) {
+                if(product.product.discount === null) return total + product.product.price * product.quantity;
+                if(product.product.discount !== null) return total + product.product.discount * product.quantity;
+
+            },0)
         },
         cartItemCount(state){
             return state.cart.length;

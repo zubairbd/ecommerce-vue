@@ -20,6 +20,7 @@ import Category from '../views/website/Category.vue'
 import ProductDetails from "../views/website/ProductDetails";
 import Cart from "../views/website/Cart";
 import Products from "../views/website/Products";
+import CategoryProduct from "../views/website/CategoryProduct";
 
 
 Vue.use(VueRouter)
@@ -46,13 +47,6 @@ const routes = [
         }
       },
       {
-        path: '/cart',
-        name: 'cart',
-        component: Cart,
-        meta:{
-        }
-      },
-      {
         path: '/categories',
         name: 'categories',
         component: Category,
@@ -63,6 +57,20 @@ const routes = [
         path: '/products',
         name: 'products',
         component: Products,
+        meta:{
+        }
+      },
+      {
+        path: '/category/:category_slug',
+        name: 'category-product',
+        component: CategoryProduct,
+        meta:{
+        }
+      },
+      {
+        path: '/cart',
+        name: 'cart',
+        component: Cart,
         meta:{
         }
       },

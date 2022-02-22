@@ -173,7 +173,7 @@ p{
 	text-align: center;
 	overflow: hidden;
 	position: relative;
-	height: 300px;
+	height: 320px;
 }
 .product-item {
 	margin: 0 10px 10px 10px;
@@ -258,6 +258,7 @@ p{
 	background: #fff;
 	z-index: 1;
 	top: 20px;
+	left: 10px;
 	box-shadow: 2px 1px 6px 2px rgba(0, 0, 0, 0.1), 0 4px 4px 0px rgba(0, 0, 0, 0.06) !important;
 }
 .badge-stock {
@@ -289,6 +290,7 @@ p{
 	background: #fff;
 	z-index: 1;
 	top: 20px;
+
 	box-shadow: 2px 1px 6px 2px rgba(0, 0, 0, 0.1), 0 4px 4px 0px rgba(0, 0, 0, 0.06) !important;
 	right: 0;
 }
@@ -348,7 +350,10 @@ p{
     -webkit-transition-delay: 0.1s;
 }
 
-
+.router-link-active {
+	/* opacity: 1; */
+	color: #0a0080 !important;
+}
 /** Category Section */
 .category-list {
 	margin: 10px;

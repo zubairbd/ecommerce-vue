@@ -12,7 +12,11 @@
                             </a>
                         </div>
                         <ul class="list-unstyled categories no-scrollbar py-2 mb-0 text-left">
-                            <li v-for="(category, ind) in categories" :key="ind"  class="category-nav-element"><a class="text-truncate text-reset py-2 px-3 d-block" href="#"><i class="fas fa-copyright mr-2"></i><span class="cat-name">Electronic Device</span></a></li>
+                            <li v-for="(category, ind) in categories" :key="ind"  class="category-nav-element">
+                              <router-link :to="`/category/${category.category_slug}`" class="text-truncate text-reset py-2 px-3 d-block">
+                              <i class="fas fa-copyright mr-2"></i><span class="cat-name">{{category.category_name}}</span>
+                              </router-link>
+                            </li>
 
                         </ul>
                     </div>
@@ -52,6 +56,7 @@
             </div>
         </div>
     </div>
+    <!-- Ads Area -->
     <div class="ads-area mb-4">
         <div class="container">
             <div class="row">
@@ -588,8 +593,9 @@
                                     <img class="img-responsive" :src="product.feature_image" alt="">
                                 </div>
                                 <div class="fs-15">
-                                    <del class="fw-600 opacity-50 mr-1">৳ {{product.price}}.00</del>
-                                    <span class="fw-700 text-primary">৳ {{product.discount}}.00</span>
+                                    <del v-if="product.discount !== null" class="fw-600 opacity-50 mr-1">৳ {{product.price}}.00</del>
+                                    <span v-if="product.discount == null" class="fw-700 text-primary">৳ {{product.price}}.00</span>
+                                    <span v-if="product.discount !== null" class="fw-700 text-primary">৳ {{product.discount}}.00</span>
                                 </div>
                                 <h3> {{product.product_name}} - {{product.product_quantity}} </h3>
                             </router-link>
