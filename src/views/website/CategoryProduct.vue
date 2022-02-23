@@ -3,20 +3,7 @@
     <section class="mt-4">
       <div class="container">
         <div class="row gutters-10">
-          <div class="col-xl-3 order-1 order-xl-0">
-            <div class="bg-white rounded shadow-sm mb-3">
-              <div class="p-3 border-bottom fs-16 fw-600">
-                Categories
-              </div>
-              <div class="px-3">
-                <ul class="list-group list-group-flush">
-                  <li v-for="category in categories" :key="category.id" class="py-1 px-0 list-group-item border-light">
-                    <router-link :to="category.category_slug" class="text-reset fs-14">{{category.category_name}}</router-link>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
+          <Sidebar />
           <div class="col-xl-9 order-0 order-xl-1 mb-5">
             <ul class="breadcrumb bg-transparent p-0">
               <li class="breadcrumb-item opacity-50">
@@ -76,9 +63,10 @@ import toastr from "toastr";
 import Loader from "../../components/frontend/Loader";
 import axios from "axios";
 import Pagination from 'laravel-vue-pagination';
+import Sidebar from "../../components/frontend/Sidebar";
 export default {
   name: "CategoryProduct",
-  components:{Loader, Pagination},
+  components:{Loader, Pagination, Sidebar},
   data(){
     return{
       products: {},

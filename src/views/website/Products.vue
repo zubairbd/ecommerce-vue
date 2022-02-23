@@ -3,23 +3,10 @@
         <section class="mt-4">
             <div class="container">
                 <div class="row gutters-10">
-                <div class="col-xl-3 order-1 order-xl-0">
-                    <div class="bg-white rounded shadow-sm mb-3">
-                        <div class="p-3 border-bottom fs-16 fw-600">
-                            Categories
-                        </div>
-                        <div class="px-3">
-                            <ul class="list-group list-group-flush">
-                                <li v-for="category in categories" :key="category.id" class="py-1 px-0 list-group-item border-light">
-                                    <router-link :to="category.category_slug" class="text-reset fs-14">{{category.category_name}}</router-link>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                <Sidebar />
                 <div class="col-xl-9 order-0 order-xl-1 mb-5">
                     <div class="row">
-                        <div v-for="product in products" :key="product.id" class="col-md-4">
+                        <div v-for="product in products.data" :key="product.id" class="col-md-4">
                             
                             <div class="product-items kz-card-box border border-light rounded hov-shadow-md mb-2 has-transition bg-white">
                                 <Loader v-if="loadingStatus" />
@@ -50,7 +37,9 @@
                                 <!-- <button @click="addToCart(product)" :disabled="product.product_quantity < 1" class="simple-btn mt-2">add to cart</button> -->
                             </div>
                         </div>
-                        <Pagination :data="products" @pagination-change-page="getActiveProducts" />
+                        <div class="mt-4 float-right">
+                          <Pagination :data="products" @pagination-change-page="getAllProducts" />
+                        </div>
                     </div>
                 </div>
                 </div>
@@ -63,34 +52,31 @@
     import Pagination from 'laravel-vue-pagination';
     import Loader from "../../components/frontend/Loader";
     import toastr from 'toastr'
+    import axios from "axios";
+    import Sidebar from "../../components/frontend/Sidebar";
     export default {
-        components: { Loader, Pagination },
+        components: {Sidebar, Loader, Pagination },
         data() {
             return {
-                
+              products: {},
+              loadingStatus: true
             }
         },
         mounted() {
-            this.$store.dispatch("getActiveCategories");
-            this.$store.dispatch("getActiveProducts");
-            this.$store.state.loadingStatus = true;
-        },
-        computed:{
-            categories(){
-            return this.$store.getters.categories;
-            },
-            products(){
-                return this.$store.getters.products;
-            },
-            loadingStatus(){
-                return this.$store.getters.loadingStatus
-            },
+            this.getAllProducts();
         },
         methods: {
             addToCart(product){
                 this.$store.dispatch('addProductToCart', product);
                 toastr.success('Product added to cart!')
             },
+            getAllProducts(page = 1){
+                axios.get('/get-all-products?page=' + page)
+              .then((response) =>{
+                this.products = response.data.data
+                setTimeout(() => { this.loadingStatus = false }, 500)
+              })
+            }
 
         }
     }

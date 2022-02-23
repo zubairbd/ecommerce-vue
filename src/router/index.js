@@ -21,6 +21,8 @@ import ProductDetails from "../views/website/ProductDetails";
 import Cart from "../views/website/Cart";
 import Products from "../views/website/Products";
 import CategoryProduct from "../views/website/CategoryProduct";
+import Brands from "../views/website/Brands";
+import Checkout from "../views/website/Checkout";
 
 
 Vue.use(VueRouter)
@@ -54,6 +56,13 @@ const routes = [
         }
       },
       {
+        path: '/brands',
+        name: 'brands',
+        component: Brands,
+        meta:{
+        }
+      },
+      {
         path: '/products',
         name: 'products',
         component: Products,
@@ -71,6 +80,13 @@ const routes = [
         path: '/cart',
         name: 'cart',
         component: Cart,
+        meta:{
+        }
+      },
+      {
+        path: '/checkout',
+        name: 'checkout',
+        component: Checkout,
         meta:{
         }
       },

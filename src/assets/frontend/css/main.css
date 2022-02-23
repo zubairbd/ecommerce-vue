@@ -7109,3 +7109,15 @@ ul.social.colored [class*="linkedin"] {
         visibility: hidden;
     }
 }
+
+
+
+.text-lg-left {
+    text-align: left !important;
+}
+.h4, h4 {
+    font-size: 1.5rem;
+}
+.pl-md-4, .px-md-4 {
+    padding-left: 1.5rem !important;
+}

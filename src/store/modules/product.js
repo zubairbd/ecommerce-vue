@@ -84,8 +84,11 @@ export const product = {
         removeCartProduct(context, id){
             context.commit('removeCartProduct', id)
         },
-        itemIncrementCart(context, id){
-            context.commit('itemCartIncreement', id)
+        addQty(context, id){
+            context.commit('addQty', id)
+        },
+        reduceQty(context, id){
+            context.commit('reduceQty', id)
         },
 
         getActiveProducts(data){
@@ -123,10 +126,18 @@ export const product = {
             state.cart = state.cart.filter(product => product.id !== id)
             // state.cart = state.cart.id !== id
         },
-        itemCartIncreement(state,){
-            state.cart = state.cart.filter(product => product.id == product.quantity++)
-            // state.cart = state.cart.id !== id
-        }
+        addQty(state, id){
+            const currentItem = state.cart.find((product) => product.id === id);
+            currentItem.quantity++;
+        },
+        reduceQty(state, id){
+            const currentItem = state.cart.find((product) => product.id === id);
+            if (currentItem.quantity > 1){
+                currentItem.quantity--;
+            }else {
+                state.cart = state.cart.filter(product => product.id !== id)
+            }
+        },
     },
 
 }

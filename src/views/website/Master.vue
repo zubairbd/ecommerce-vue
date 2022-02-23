@@ -35,7 +35,7 @@
             </div>
         </footer>
     </div>
-    <button class="flashDealButton d-flex flex-column align-items-center pointer">
+    <router-link to="/cart" class="flashDealButton d-flex flex-column align-items-center pointer">
         <div class="fixed-cart-items">
             <span><i style="font-size: 18px;" class="fas fa-shopping-bag"></i></span>
             <span>
@@ -47,7 +47,7 @@
             <span><span>৳{{cartTotalPrice}}</span></span>
             
         </div>
-    </button>
+    </router-link>
   </div>
 </template>
 

@@ -162,9 +162,9 @@
                                 </a>
                             </li>
                             <li class="list-inline-item mr-0">
-                                <a href="https://bongobaba.com/brands" active-class="active" class="opacity-60 fs-14 px-3 py-2 d-inline-block fw-600 hov-opacity-100 text-reset">
+                                <router-link :to="{name:'brands'}" active-class="active" class="opacity-60 fs-14 px-3 py-2 d-inline-block fw-600 hov-opacity-100 text-reset">
                                     All Brands
-                                </a>
+                                </router-link>
                             </li>
                             <li class="list-inline-item mr-0">
                                  <router-link :to="{name:'categories'}" active-class="active" class="opacity-60 fs-14 px-3 py-2 d-inline-block fw-600 hov-opacity-100 text-reset">
@@ -204,6 +204,8 @@
 
 <script>
     // import $ from 'jquery';
+    import toastr from "toastr";
+
     export default {
         
         data() {
@@ -228,7 +230,16 @@
         methods: {
           removeFromCart(id){
             this.$store.dispatch('removeCartProduct', id)
-            
+            toastr.options = {
+              "debug": false,
+              "positionClass": "toast-top-center",
+              "onclick": null,
+              "fadeIn": 300,
+              "fadeOut": 1000,
+              "timeOut": 5000,
+              "extendedTimeOut": 1000
+            }
+            toastr.warning('Item has been removed from cart!')
           }
         },
         created() {
