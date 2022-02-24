@@ -150,7 +150,6 @@
             this.subcategories = response.data.data
           })
         },
-        
       },
       computed: {
         categories(){

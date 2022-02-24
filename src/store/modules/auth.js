@@ -6,12 +6,7 @@ export const auth = {
     state: {
         auth_status:false,
         auth_token: localStorage.getItem('SET_AUTH_TOKEN') || null,
-        auth_info:{
-            name:null,
-            email: null,
-            phone: null,
-            images: null,
-        }
+        auth_info: JSON.parse(localStorage.getItem('SET_AUTH_INFO')) || null,
     },
     getters: {
         loggedIn(state){
@@ -39,6 +34,7 @@ export const auth = {
                     // console.log(res.data.data)
                     localStorage.setItem('SET_AUTH_TOKEN', res.data.data.access_token)
                     context.commit('SET_AUTH_TOKEN', res.data.data.access_token)
+                    localStorage.setItem('SET_AUTH_INFO', JSON.stringify(res.data.data.user))
                     context.commit('SET_AUTH_INFO', res.data.data.user)
                     resolve(res)
                 }).catch((err) =>{
@@ -55,6 +51,7 @@ export const auth = {
                 .then((res) =>{
                     console.log(res.data.data)
                     localStorage.removeItem('SET_AUTH_TOKEN')
+                    localStorage.removeItem('SET_AUTH_INFO')
                     context.commit('SET_AUTH_LOGOUT')
                     resolve(res)
                 }).catch((err) =>{
@@ -70,10 +67,11 @@ export const auth = {
             state.auth_status = true;
         },
         SET_AUTH_INFO(state, info){
-            state.auth_info.name = info.name;
-            state.auth_info.email = info.email;
-            state.auth_info.phone = info.phone;
-            state.auth_info.images = info.images;
+            state.auth_info = info;
+            // state.auth_info.email = info.email;
+            // state.auth_info.phone = info.phone;
+            // state.auth_info.images = info.images;
+            // state.auth_info.id = info.id;
         },
         SET_AUTH_LOGOUT(state){
             state.auth_token = null;
@@ -83,6 +81,8 @@ export const auth = {
                 email: null,
                 phone: null,
                 images: null,
+                id: null,
+
             }
         }
     },

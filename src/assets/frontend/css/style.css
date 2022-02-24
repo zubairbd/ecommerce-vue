@@ -350,7 +350,7 @@ p{
     -webkit-transition-delay: 0.1s;
 }
 
-.router-link-active {
+.router-link-active active {
 	/* opacity: 1; */
 	color: #0a0080 !important;
 }

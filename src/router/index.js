@@ -88,6 +88,7 @@ const routes = [
         name: 'checkout',
         component: Checkout,
         meta:{
+          requiresAuth: true
         }
       },
     ]

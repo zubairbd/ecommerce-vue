@@ -16,25 +16,31 @@
                                         <span>+8801922-228111</span>    
                                     </a>
                                 </li>
-                                <li class="list-inline-item mr-3 border-right border-left-0 pr-3 pl-0">
+                                <li v-if="!loggedIn" class="list-inline-item mr-3 border-right border-left-0 pr-3 pl-0">
                                     <router-link :to="{name:'login'}" class="text-reset d-inline-block opacity-60 py-2">Login</router-link>
                                 </li>
-                                <li class="list-inline-item">
+                                <li v-if="!loggedIn" class="list-inline-item">
                                     <a href="https://bongobaba.com/users/registration" class="text-reset d-inline-block opacity-60 py-2">Registration</a>
                                  </li>
+                                <li v-if="loggedIn" class="list-inline-item mr-3 border-right border-left-0 pr-3 pl-0">
+                                  <router-link :to="{name:'logout'}" class="text-reset d-inline-block opacity-60 py-2">Logout</router-link>
+                                </li>
+                                <li v-if="loggedIn" class="list-inline-item mr-3 border-right border-left-0 pr-3 pl-0">
+                                  <router-link :to="{name:'user'}" class="text-reset d-inline-block opacity-60 py-2">{{userInfo['name']}}</router-link>
+                                </li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
-            <header class="sticky-top z-1020 bg-white border-bottom shadow-sm">
+            <header class="z-1020 bg-white border-bottom shadow-sm">
                
                 <div class="position-relative logo-bar-area z-1">
                     <div class="container">
                         <div class="d-flex align-items-center">
                             <div class="col-auto col-xl-3 pl-0 pr-3 d-flex align-items-center">
                                 <router-link :to="{name:'index'}" class="d-block py-20px mr-3 ml-0">
-                                    <img src="https://bongobaba.com/public/uploads/all/RvCilg09ouiFKHzJXY2Bm5wg0OCQ8P7tJpJ8avZI.gif" alt="BongoBaba.com" class="mw-100 h-30px h-md-40px" height="40" />
+                                    <img src="logo-en.svg" alt="ZubairBD.com" class="mw-100 h-30px h-md-40px" height="40" />
                                 </router-link>
                             </div>
                         
@@ -214,6 +220,12 @@
             }
         },
         computed:{
+            loggedIn(){
+              return this.$store.getters.loggedIn;
+            },
+            userInfo(){
+              return this.$store.getters.GET_AUTH_INFO;
+            },
             products(){
               return this.$store.getters.cartProducts
             },

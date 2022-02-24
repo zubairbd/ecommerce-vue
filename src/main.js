@@ -25,7 +25,8 @@ import toastr from "toastr";
 // window.toastr = toastr;
 Vue.use(toastr);
 import Toast from "vue-toastification";
-// Import the CSS or use your own!
+
+
 //Sweetalert2
 import "vue-toastification/dist/index.css";
 import VueSweetalert2 from 'vue-sweetalert2';
@@ -35,10 +36,11 @@ Vue.use(VueSweetalert2);
 
 // CKEditor
 import CKEditor from 'ckeditor4-vue';
-
-import vuetify from './plugins/vuetify'
 Vue.use( CKEditor );
 
+// VModal
+import VModal from 'vue-js-modal'
+Vue.use(VModal)
 
 
 // Pagination
@@ -51,6 +53,5 @@ new Vue({
   filter,
   Toast,
   toastr,
-  vuetify,
   render: h => h(App)
 }).$mount('#app')

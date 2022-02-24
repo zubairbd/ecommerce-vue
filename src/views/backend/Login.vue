@@ -3,6 +3,13 @@
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-lg-8">
+          <div class="logo mb-4 text-center">
+            <router-link to="/"><img src="logo-en.svg"></router-link>
+          </div>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
           <div class="card-group d-block d-md-flex row">
             <div class="card col-md-7 p-4 mb-0">
               <form @submit.prevent="adminLogin()">

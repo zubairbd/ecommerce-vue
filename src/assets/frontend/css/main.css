@@ -7121,3 +7121,10 @@ ul.social.colored [class*="linkedin"] {
 .pl-md-4, .px-md-4 {
     padding-left: 1.5rem !important;
 }
+.z-1020 {
+    z-index: 1020 !important;
+}
+button {
+    background: #fff;
+    border: none;
+}
