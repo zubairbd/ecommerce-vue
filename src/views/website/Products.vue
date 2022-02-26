@@ -75,6 +75,7 @@
               .then((response) =>{
                 this.products = response.data.data
                 setTimeout(() => { this.loadingStatus = false }, 500)
+                console.log(response.data.data)
               })
             }
 

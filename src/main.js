@@ -47,6 +47,29 @@ Vue.use(VModal)
 Vue.component('pagination', require('laravel-vue-pagination'));
 Vue.config.productionTip = false
 
+
+
+// axios.interceptors.response.use(undefined, function (error) {
+//   if (error) {
+//     const originalRequest = error.config;
+//     if (error.response.status === 401 && !originalRequest._retry) {
+//
+//       originalRequest._retry = true;
+//       store.dispatch('Logout')
+//       return router.push('/login')
+//     }
+//   }
+// })
+
+
+
+
+
+
+
+
+
+
 new Vue({
   router,
   store,

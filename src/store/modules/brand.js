@@ -12,7 +12,7 @@ export const brand = {
     },
     actions: {
         getBrands(data){
-            axios.get("./get-brands").then((response)=> {
+            axios.get("./admin/get-brands").then((response)=> {
                 data.commit("brands", response.data.data);
                 setTimeout(() => {data.commit("loadingStatus", false) }, 500)
             }).catch((error)=> {

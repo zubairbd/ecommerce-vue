@@ -48,8 +48,9 @@ export const product = {
 
     },
     actions: {
+        // Backend
         getProducts(data){
-            axios.get("./get-products").then((response)=> {
+            axios.get("./admin/get-products").then((response)=> {
                 data.commit("products", response.data.data);
                 setTimeout(() => {data.commit("loadingStatus", false) }, 1000)
 
@@ -57,6 +58,8 @@ export const product = {
                 console.log(error);
             })
         },
+
+        // Frontend
         getProduct({commit}, productSlug){
             axios.get(`/view-product/${productSlug}`).then((response) => {
                 commit('SET_PRODUCT', response.data.data);

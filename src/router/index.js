@@ -171,7 +171,7 @@ const routes = [
       // Brand Route
       {
         path: '/admin/brands',
-        name: 'brands',
+        name: 'admin-brands',
         component: BrandManage,
         meta:{
           requiresAuth: true

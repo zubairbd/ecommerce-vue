@@ -25,7 +25,8 @@ export default {
   components: {Breadcrumb},
   data(){
     return {
-      brands: {}
+      brands: {},
+
     }
   },
   mounted() {

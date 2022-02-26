@@ -17,7 +17,7 @@ export const category = {
     actions: {
         getCategories({ commit }){
             commit('loadingStatus', true)
-            return axios.get("./get-categories")
+            return axios.get("./admin/get-categories")
                 .then((response)=> {
                 commit("categories", response.data.data);
                 commit("loadingStatus", false);
@@ -27,7 +27,7 @@ export const category = {
             })
         },
         getActiveCategories(data){
-            axios.get("./get-active-categories").then((response)=> {
+            axios.get("./admin/get-active-categories").then((response)=> {
                 data.commit("categories", response.data.data);
                 // console.log(response.data.data);
             }).catch((error)=> {
@@ -35,7 +35,7 @@ export const category = {
             })
         },
         getSubCategories(data){
-            axios.get("./get-subcategories").then((response)=> {
+            axios.get("./admin/get-subcategories").then((response)=> {
                 data.commit("subcategories", response.data.data);
                 setTimeout(() => {data.commit("loadingStatus", false) }, 500)
             }).catch((error)=> {

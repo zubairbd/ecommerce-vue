@@ -15,7 +15,7 @@
       <li class="nav-item"><router-link :to="{name:'subcategory'}" active-class="active" class="nav-link">
         <div class="nav-icon"><i class="cil-library-add"></i></div>Sub Category</router-link>
       </li>
-      <li class="nav-item"><router-link :to="{name:'brands'}" active-class="active" class="nav-link">
+      <li class="nav-item"><router-link :to="{name:'admin-brands'}" active-class="active" class="nav-link">
         <div class="nav-icon"><i class="cil-library-add"></i></div>Brands</router-link>
       </li>
       <li class="nav-item"><router-link :to="{name:'admin-products'}" active-class="active" class="nav-link">
