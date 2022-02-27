@@ -7128,3 +7128,19 @@ button {
     background: #fff;
     border: none;
 }
+.c-pointer {
+    cursor: pointer !important;
+}
+.pl-3, .px-3 {
+    padding-left: 1rem !important;
+}
+.ml-2, .mx-2 {
+    margin-left: .5rem !important;
+}
+.aiz-megabox {
+    position: relative;
+    cursor: pointer;
+}
+.right-0 {
+    right: 0 !important;
+}

@@ -77,7 +77,7 @@
                             <div class="header-nav flex-grow-1 front-header-search d-flex align-items-center bg-white">
                                 <div class="position-relative d-flex flex-grow-1 ml-3 justify-content-end align-items-center">
                                     <div class="dropdown">
-                                        <a href="javascript:void(0)" class="d-flex align-items-center text-reset h-100" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <a href="javascript:void(0)" class="d-flex align-items-center text-reset h-100" data-bs-toggle="dropdown" aria-expanded="false">
                                             <span class="header-nav-link pointer cart-nav-link mr-2">
                                                 <i class="fas fa-shopping-bag"></i>
                                                 <span class="cart-qty">{{cartItemCount}}</span>

@@ -8,9 +8,9 @@ import {product} from './modules/product'
 import {brand} from "./modules/brand";
 import {cart} from "./modules/cart";
 import createPersistedState from "vuex-persistedstate"
-
 axios.defaults.baseURL = 'http://127.0.0.1:8000/api/v1';
-axios.defaults.headers.common['Authorization'] = 'Bearer ' + this.$store.GET_AUTH_TOKEN;
+// axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('SET_AUTH_TOKEN')`;
+
 export default new Vuex.Store({
   
   state: {

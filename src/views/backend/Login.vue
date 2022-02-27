@@ -44,7 +44,7 @@
                 <div>
                   <h2>Sign up</h2>
                   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                  <button class="btn btn-lg btn-outline-light mt-3" type="button">Register Now!</button>
+                  <router-link :to="{name:'register'}" class="btn btn-lg btn-outline-light mt-3" type="button">Register Now!</router-link>
                 </div>
               </div>
             </div>
@@ -57,6 +57,7 @@
 
 <script>
 import toastr from 'toastr'
+
 export default {
   name: "Login",
 
@@ -73,12 +74,16 @@ export default {
       adminLogin(){
           this.$store.dispatch("LOGIN", this.credential)
         .then((res) =>{
+
           window.location.href = '/admin/dashboard'
           toastr.success(res.data.message)
         })
-        // .catch((err) =>{
-        //     console.log(err.response.data.errors)
-        // })
+        .catch((error) =>{
+           for (const [, v] of Object.entries(error.response.data.errors)){
+             toastr.error(v)
+           }
+          // toastr.error(error.response.data.message)
+        })
       }
   },
 }

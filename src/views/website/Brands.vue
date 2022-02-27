@@ -14,12 +14,14 @@
         </div>
       </div>
     </section>
+
   </div>
 </template>
 
 <script>
 import axios from "axios";
 import Breadcrumb from "../../components/frontend/Breadcrumb";
+
 export default {
   name: "Brands",
   components: {Breadcrumb},
@@ -32,6 +34,7 @@ export default {
   mounted() {
     this.getBrands()
   },
+
   methods:{
     getBrands() {
       axios.get('get-brands')

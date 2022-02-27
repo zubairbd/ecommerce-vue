@@ -1,7 +1,7 @@
 
 import axios from 'axios'
 import moment from 'moment'
-
+import setAuthHeader from "../../utils/setAuthHeader";
 export const auth = {
     state: {
         auth_status:false,
@@ -27,40 +27,46 @@ export const auth = {
         }
     },
     actions: {
-            LOGIN(context, credential){
 
-                return new Promise((resolve,reject) => {
-                    axios.post('/login', {
-                        email: credential.email,
-                        password: credential.password,
-                    }).then((res) => {
-                        localStorage.setItem('SET_AUTH_TOKEN', res.data.data.access_token)
-                        context.commit('SET_AUTH_TOKEN', res.data.data.access_token)
-                        localStorage.setItem('SET_AUTH_INFO', JSON.stringify(res.data.data.user))
-                        context.commit('SET_AUTH_INFO', res.data.data.user)
-                        resolve(res)
-                    }).catch(error => {
-                        console.log(error)
-                        reject(error)
-                    })
+        register(context, formData){
+            return new Promise((resolve,reject) => {
+                axios.post('/register', {
+                    name: formData.name,
+                    email: formData.email,
+                    password: formData.password,
+                    password_confirmation: formData.password_confirmation,
+                }).then((res) => {
+                    localStorage.setItem('SET_AUTH_TOKEN', res.data.data.access_token)
+                    context.commit('SET_AUTH_TOKEN', res.data.data.access_token)
+                    localStorage.setItem('SET_AUTH_INFO', JSON.stringify(res.data.data.user))
+                    context.commit('SET_AUTH_INFO', res.data.data.user)
+                    setAuthHeader(res.data.data.access_token)
+                    resolve(res)
+                }).catch(error => {
+                    console.log(error)
+                    reject(error)
                 })
-            // return new Promise((resolve,reject) =>{
-            //     axios.post('/login', form)
-            //     .then((res) =>{
-            //         // console.log(res.data.data)
-            //         localStorage.setItem('SET_AUTH_TOKEN', res.data.data.access_token)
-            //         context.commit('SET_AUTH_TOKEN', res.data.data.access_token)
-            //         localStorage.setItem('SET_AUTH_INFO', JSON.stringify(res.data.data.user))
-            //         context.commit('SET_AUTH_INFO', res.data.data.user)
-            //         toastr.success(res.data.message)
-            //
-            //         resolve(res)
-            //     }).catch((err) =>{
-            //         reject(err)
-            //         // console.log(err.response.data);
-            //         toastr.error(err.response.data.message)
-            //     })
-            // })
+            })
+
+        },
+
+        LOGIN(context, credential){
+            return new Promise((resolve,reject) => {
+                axios.post('/login', {
+                    email: credential.email,
+                    password: credential.password,
+                }).then((res) => {
+                    localStorage.setItem('SET_AUTH_TOKEN', res.data.data.access_token)
+                    context.commit('SET_AUTH_TOKEN', res.data.data.access_token)
+                    localStorage.setItem('SET_AUTH_INFO', JSON.stringify(res.data.data.user))
+                    context.commit('SET_AUTH_INFO', res.data.data.user)
+                    resolve(res)
+                }).catch(error => {
+                    console.log(error)
+                    reject(error)
+                })
+            })
+
         },
         Logout(context){
             axios.defaults.headers.common['Authorization'] = 'Bearer '+ context.state.auth_token;

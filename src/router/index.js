@@ -231,6 +231,14 @@ const routes = [
     }
   },
   {
+    path: '/register',
+    name: 'register',
+    component: () => import(/* webpackChunkName: "about" */ '../views/website/Register.vue'),
+    meta:{
+      visited: true
+    }
+  },
+  {
     path: '/logout',
     name: 'logout',
     component: Logout,
