@@ -5,7 +5,8 @@ export const product = {
     state: {
         productData: [],
         product: {},
-        cart: []
+        cart: [],
+        delivery: null
 
 
     },
@@ -103,6 +104,14 @@ export const product = {
                 console.log(error);
             })
         },
+        deliveryCharge(context, shipping){
+            if (shipping.district == 47){
+                context.commit('deliveryCharge', 50)
+            }else {
+                context.commit('deliveryCharge', 100)
+            }
+
+        }
         
 
     },
@@ -141,6 +150,11 @@ export const product = {
                 state.cart = state.cart.filter(product => product.id !== id)
             }
         },
+        deliveryCharge(state, id){
+            state.delivery.push({
+                id: id,
+            })
+        }
     },
 
 }
