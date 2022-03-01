@@ -1,5 +1,5 @@
 <template>
-    <div class="col-md-8">
+    <div>
       <div class="card text-center">
         <div class="card-header">
           <h4 class="fs-18">DELIVERY & BILLING INFO</h4>

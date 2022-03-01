@@ -2740,6 +2740,12 @@ input[type="number"] {
         flex: 0 0 16.666667%;
         max-width: 16.666667%;
     }
+
+    .col-xl-10 {
+        -ms-flex: 0 0 83.333333%;
+        flex: 0 0 83.333333%;
+        max-width: 83.333333%;
+    }
 }
 
 /* xxl */
@@ -7147,7 +7153,9 @@ button {
 .text-right {
     text-align: right !important;
 }
-
+.ml-auto, .mx-auto {
+    margin-left: auto !important;
+}
 .table td, .table th {
     padding: .75rem;
     vertical-align: top;

@@ -17,23 +17,24 @@
               </div>
               <div class="input-group mb-3"><span class="input-group-text">
                     <div class="icon">
-                      <i class="la la-email"></i>
+                      <i class="la la-envelope"></i>
                     </div></span>
                 <input class="form-control" v-model="formData.email" type="text" placeholder="Email">
               </div>
               <div class="input-group mb-3"><span class="input-group-text">
                     <div class="icon">
-                      <i class="cil-user"></i>
+                      <i class="la la-lock"></i>
                     </div></span>
                 <input class="form-control" v-model="formData.password" type="password" placeholder="Password">
               </div>
               <div class="input-group mb-4"><span class="input-group-text">
                     <div class="icon">
-                      <i class="cil-user"></i>
+                      <i class="la la-lock"></i>
                     </div></span>
                 <input class="form-control" v-model="formData.password_confirmation" type="password" placeholder="Repeat password">
               </div>
               <button class="btn btn-block btn-success" type="submit">Create Account</button>
+              <router-link to="/login" class="btn btn-block btn-warning float-end" type="submit">Back To Login</router-link>
             </div>
             </form>
           </div>

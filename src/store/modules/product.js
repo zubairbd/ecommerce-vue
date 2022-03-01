@@ -6,7 +6,6 @@ export const product = {
         productData: [],
         product: {},
         cart: [],
-        delivery: null
 
 
     },
@@ -44,7 +43,7 @@ export const product = {
         },
         cartItem(state, gretters){
             return gretters.cartProducts.reduce((cartTotal, product) => cartTotal + product.quantity, 0);
-        }
+        },
 
 
     },
@@ -78,11 +77,6 @@ export const product = {
                     context.commit('incrementItemQuantity', cartItem)
                 }
                 context.commit('decrementProductInventory', product)
-
-                // axios.post('/cart', {
-                //     product_id: product.id,
-                //     quantity: product.id
-                // });
             }
         },
         removeCartProduct(context, id){
@@ -104,14 +98,7 @@ export const product = {
                 console.log(error);
             })
         },
-        deliveryCharge(context, shipping){
-            if (shipping.district == 47){
-                context.commit('deliveryCharge', 50)
-            }else {
-                context.commit('deliveryCharge', 100)
-            }
 
-        }
         
 
     },
@@ -150,11 +137,7 @@ export const product = {
                 state.cart = state.cart.filter(product => product.id !== id)
             }
         },
-        deliveryCharge(state, id){
-            state.delivery.push({
-                id: id,
-            })
-        }
+
     },
 
 }
