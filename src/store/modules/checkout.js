@@ -2,10 +2,14 @@
 export const checkout = {
     state: {
         delivery: null,
+        shipping: null,
     },
     getters: {
         deliveryCharge(state){
             return state.delivery;
+        },
+        addressId(state){
+            return state.shipping
         }
     },
     actions: {
@@ -27,12 +31,16 @@ export const checkout = {
             }else {
                 context.commit('deliveryCharge', 0)
             }
+            context.commit('addressId', shipping.id)
         }
     },
     mutations: {
         deliveryCharge(state, id){
             state.delivery = id
-        }
+        },
+        addressId(state, id){
+            state.shipping = id
+        },
     },
 
 }

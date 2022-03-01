@@ -51,7 +51,7 @@
               </div>
             </div>
             <div class="col-md-6 mt-auto mb-3">
-              <div @click="show" class="border p-3 rounded mb-3 c-pointer text-center bg-white h-100 d-flex flex-column justify-content-center" onclick="add_new_address()">
+              <div @click="show" class="border p-3 rounded mb-3 c-pointer text-center bg-white h-100 d-flex flex-column justify-content-center">
                 <i class="las la-plus la-2x mb-3"></i>
                 <div class="alpha-7">Add New Address</div>
               </div>
@@ -203,6 +203,7 @@ export default {
       shippings: {},
     }
   },
+ 
   mounted() {
     this.getDivision();
     this.getShipping();
@@ -280,6 +281,7 @@ export default {
     deliveryCharge(shipping){
       this.$store.dispatch('deliveryCharge', shipping);
     },
+    
 
     initForm() {
       return {

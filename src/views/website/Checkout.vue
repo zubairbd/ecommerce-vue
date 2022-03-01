@@ -16,7 +16,7 @@
                       <div class="row gutters-5">
                         <div  class="col-6 col-md-4">
                           <label class="aiz-megabox d-block bg-white mb-0">
-                            <input type="radio" name="address_id" value="" required="">
+                            <input type="radio" name="address_id" value="">
                             <span class="d-block p-3 aiz-megabox-elem">
                             <img src="https://bongobaba.com/public/assets/img/cards/sslcommerz.png" class="img-fluid mb-2">
                             <span class="d-block text-center">
@@ -27,7 +27,7 @@
                         </div>
                         <div  class="col-6 col-md-4">
                           <label class="aiz-megabox d-block bg-white mb-0">
-                            <input type="radio" name="address_id" value="" required="">
+                            <input type="radio" name="address_id" value="" >
                             <span class="d-block p-3 aiz-megabox-elem">
                             <img src="https://bongobaba.com/public/assets/img/cards/nagad.png" class="img-fluid mb-2">
                             <span class="d-block text-center">
@@ -38,7 +38,7 @@
                         </div>
                         <div  class="col-6 col-md-4">
                           <label class="aiz-megabox d-block bg-white mb-0">
-                            <input type="radio" name="address_id" value="" required="">
+                            <input type="radio" name="address_id" value="">
                             <span class="d-block p-3 aiz-megabox-elem">
                             <img src="https://bongobaba.com/public/assets/img/cards/cod.png" class="img-fluid mb-2">
                             <span class="d-block text-center">
@@ -77,6 +77,7 @@
                         </td>
                         <td v-if="item.product.discount == null" class="text-right">৳{{item.product.price * item.quantity}}.00</td>
                         <td v-if="item.product.discount !== null" class="text-right">৳{{item.product.discount * item.quantity}}.00</td>
+                        
                       </tr>
                     </tbody>
                   </table>
@@ -98,6 +99,8 @@
                       <tr>
                         <th>Total</th>
                         <td class="text-right">৳{{cartTotalPrice + deliveryCharge}}.00</td>
+                        <td class="text-right"><input type="text" :v-model="form.total" :value="cartTotalPrice + deliveryCharge"></td>
+                        
                       </tr>
                     </tfoot>
                   </table>
@@ -113,6 +116,7 @@
                     </form>
                   </div>
                 </div>
+                <input type="text" v-model="form.subtotal" name="subtotal" id="subtotal">
                 <div class="card-footer">
                   <button type="submit" class="btn btn-primary justify-content-end"> Order Completed</button>
                 </div>
@@ -130,12 +134,17 @@
 import Shipping from "../../components/frontend/Shipping";
 import Load from "../../components/frontend/Load";
 import axios from 'axios';
+import toastr from 'toastr';
 export default {
   name: "Checkout",
   components:{Shipping, Load},
   data(){
     return{
-      form: this.initForm(),
+      form: {
+        total: this.cartTotalPrice || null,
+        subtotal: 'hellom',
+        address: this.addressId
+      },
     }
   },
   mounted() {
@@ -157,6 +166,9 @@ export default {
     },
     deliveryCharge(){
       return this.$store.getters.deliveryCharge;
+    },
+    addressId(){
+      return this.$store.getters.addressId
     }
   },
   methods: {
@@ -171,11 +183,12 @@ export default {
            }
         })
     },
-    initForm() {
-      return {
-        address_id: '',
-      }
-    },
+    // initForm() {
+    //   return {
+    //     // address_id: this.addressId,
+    //     total: null,
+    //   }
+    // },
   },
 
 
