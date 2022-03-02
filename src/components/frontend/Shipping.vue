@@ -8,7 +8,7 @@
           <div class="row gutters-5">
             <div v-for="shipping in shippings" :key="shipping.id" class="col-md-6 mb-3 position-relative">
               <label @click="deliveryCharge(shipping)" class="aiz-megabox d-block bg-white mb-0">
-                <input type="radio" v-model="shipping.address_id" name="address_id" :value="shipping.id" required="">
+                <input type="radio" v-model="shipping.address_id" name="address_id" :value="shipping.id">
                 <span class="d-flex p-3 aiz-megabox-elem">
                         <span class="aiz-rounded-check flex-shrink-0 mt-1"></span>
                         <span class="flex-grow-1 pl-3 text-left">

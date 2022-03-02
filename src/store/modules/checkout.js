@@ -1,4 +1,5 @@
-// import axios from 'axios'
+import axios from 'axios'
+import toastr from "toastr";
 export const checkout = {
     state: {
         delivery: null,
@@ -32,6 +33,22 @@ export const checkout = {
                 context.commit('deliveryCharge', 0)
             }
             context.commit('addressId', shipping.id)
+        },
+        orderStore(state, chekoutInfo){
+            axios.post('/order-store', chekoutInfo)
+                .then((res) =>{
+                    console.log(res)
+                    toastr.success(res.data.message)
+                    state.commit('removeAllCart')
+                    state.commit('removeDeliveryCharge')
+                })
+                .catch((error) =>{
+                    for (const [, v] of Object.entries(error.response.data.errors)){
+                        toastr.error(v)
+                    }
+                })
+
+
         }
     },
     mutations: {
@@ -41,6 +58,11 @@ export const checkout = {
         addressId(state, id){
             state.shipping = id
         },
+        removeDeliveryCharge(state){
+            state.shipping = null;
+            state.delivery = null;
+        },
+
     },
 
 }

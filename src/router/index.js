@@ -23,6 +23,8 @@ import Products from "../views/website/Products";
 import CategoryProduct from "../views/website/CategoryProduct";
 import Brands from "../views/website/Brands";
 import Checkout from "../views/website/Checkout";
+import Dashboard from "../views/website/user/Dashboard";
+import PurchaseHistory from "../views/website/user/PurchaseHistory";
 
 
 Vue.use(VueRouter)
@@ -48,6 +50,7 @@ const routes = [
         meta:{
         }
       },
+
       {
         path: '/categories',
         name: 'categories',
@@ -77,7 +80,7 @@ const routes = [
         }
       },
       {
-        path: '/cart',
+        path: '/orders',
         name: 'cart',
         component: Cart,
         meta:{
@@ -89,6 +92,22 @@ const routes = [
         component: Checkout,
         meta:{
           requiresAuth: true
+        }
+      },
+
+      // User Login Routes
+      {
+        path: '/dashboard',
+        name: 'dashboard',
+        component: Dashboard,
+        meta:{
+        }
+      },
+      {
+        path: '/purchase-history',
+        name: 'purchase',
+        component: PurchaseHistory,
+        meta:{
         }
       },
     ]

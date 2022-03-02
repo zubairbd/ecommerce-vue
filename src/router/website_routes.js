@@ -1,19 +1,17 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-
-import Checkout from "../views/website/Checkout";
-
+import PurchaseHistory from "../views/website/user/PurchaseHistory";
 
 Vue.use(VueRouter)
 
-const router = [
+const routers = [
     {
-        path: '/checkout',
-        name: 'checkout',
-        component: Checkout,
+        path: '/purchase-history',
+        name: 'purchase',
+        component: PurchaseHistory,
         meta:{
         }
     },
 ]
 
-export default router
+export default routers

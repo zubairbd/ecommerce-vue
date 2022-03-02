@@ -14,7 +14,7 @@
             <h3> {{product.product_name}} </h3>
         </router-link>
         
-        <button @click="addToCart()" :disabled="product.product_quantity < 1" class="simple-btn mt-2">add to cart</button>
+        <button @click="addToCart()" :disabled="product.product_quantity < 1" class="simple-btn mt-2">add to orders</button>
     </div>
 </template>
 

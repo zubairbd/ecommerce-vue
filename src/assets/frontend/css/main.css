@@ -7165,3 +7165,11 @@ button {
     vertical-align: bottom;
     border-bottom: 2px solid #dee2e6;
 }
+.table {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #212529;
+}
+.p-4 {
+    padding: 0.5rem !important;
+}

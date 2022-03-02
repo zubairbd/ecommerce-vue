@@ -85,7 +85,7 @@
                 <div class="mt-3">
                   <button type="button" class="btn btn-soft-primary mr-2 add-to-cart fw-600" @click="addToCart(product)">
                     <i class="fas fa-shopping-bag"></i>
-                    <span class="d-none d-md-inline-block">Add to cart</span>
+                    <span class="d-none d-md-inline-block">Add to orders</span>
                   </button>
                   <button type="button" class="btn btn-primary buy-now fw-600 mr-2" onclick="buyNow()"><i class="fas fa-shopping-cart"></i> Buy Now</button>
                   <button type="button" class="btn btn-warning buy-now fw-600" onclick="buyNow()"><i class="fas fa-heart"></i> Add to Wishlist</button>
@@ -396,7 +396,7 @@ export default {
     // },
     addToCart(product){
       this.$store.dispatch('addProductToCart', product);
-      toastr.success('Product added to cart!')
+      toastr.success('Product added to orders!')
     },
   }
 

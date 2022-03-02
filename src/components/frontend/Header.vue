@@ -23,11 +23,11 @@
                                     <a href="https://bongobaba.com/users/registration" class="text-reset d-inline-block opacity-60 py-2">Registration</a>
                                  </li>
                                 <li v-if="loggedIn" class="list-inline-item mr-3 border-right border-left-0 pr-3 pl-0">
-                                  <router-link :to="{name:'logout'}" class="text-reset d-inline-block opacity-60 py-2">Logout</router-link>
+                                  <router-link :to="{name:'dashboard'}" class="text-reset d-inline-block opacity-60 py-2">{{GET_AUTH_INFO['name']}}</router-link>
                                 </li>
-                                <li v-if="loggedIn" class="list-inline-item mr-3 border-right border-left-0 pr-3 pl-0">
-                                  <router-link :to="{name:'user'}" class="text-reset d-inline-block opacity-60 py-2">{{userInfo['name']}}</router-link>
-                                </li>
+                              <li v-if="loggedIn" class="list-inline-item mr-3 border-right border-left-0 pr-3 pl-0">
+                                <router-link :to="{name:'logout'}" class="text-reset d-inline-block opacity-60 py-2">Logout</router-link>
+                              </li>
                             </ul>
                         </div>
                     </div>
@@ -80,22 +80,22 @@
                                         <a href="javascript:void(0)" class="d-flex align-items-center text-reset h-100" data-bs-toggle="dropdown" aria-expanded="false">
                                             <span class="header-nav-link pointer cart-nav-link mr-2">
                                                 <i class="fas fa-shopping-bag"></i>
-                                                <span class="cart-qty">{{cartItemCount}}</span>
+                                                <span class="cart-qty">{{cartItem}}</span>
                                             </span>
                                         </a>
 
-                                        <div v-if="!cartItemCount" class="dropdown-menu dropdown-menu-right dropdown-menu-lg p-0 stop-propagation" style="inset: 18px auto auto 0px;">
+                                        <div v-if="!cartItem" class="dropdown-menu dropdown-menu-right dropdown-menu-lg p-0 stop-propagation" style="inset: 18px auto auto 0px;">
                                         <div class="text-center p-3">
                                             <i class="far fa-frown fa-3x opacity-60 mb-3"></i>
                                             <h3 class="h6 fw-700">Your Cart is empty</h3>
                                         </div>
                                         </div>
-                                        <div v-if="cartItemCount" class="dropdown-menu dropdown-menu-right dropdown-menu-lg p-0 stop-propagation" style="inset: 18px auto auto 0px;">
+                                        <div v-if="cartItem" class="dropdown-menu dropdown-menu-right dropdown-menu-lg p-0 stop-propagation" style="inset: 18px auto auto 0px;">
                                             <div class="p-3 fs-15 fw-600 p-3 border-bottom">
                                                 Cart Items
                                             </div>
                                             <ul class="h-250px overflow-auto c-scrollbar-light list-group list-group-flush">
-                                                <li v-for="item in products" :key="item.id" class="list-group-item">
+                                                <li v-for="item in cartProducts" :key="item.id" class="list-group-item">
                                                     <span class="d-flex align-items-center">
                                                         <router-link :to="`/product/${item.product.product_slug}`" class="text-reset d-flex align-items-center flex-grow-1">
                                                             <img :src="item.product.feature_image" data-src="item.product.feature_image" class="size-60px rounded lazyloaded" alt="Denim Printed Jacket BV1">
@@ -123,8 +123,8 @@
                                             <div class="px-3 py-2 text-center border-top">
                                                 <ul class="list-inline mb-0">
                                                     <li class="list-inline-item">
-                                                        <router-link to="/cart" class="btn btn-soft-primary btn-sm">
-                                                            View cart
+                                                        <router-link to="/orders" class="btn btn-soft-primary btn-sm">
+                                                            View orders
                                                         </router-link>
                                                     </li>
                                                     <li class="list-inline-item">
@@ -211,6 +211,7 @@
 <script>
     // import $ from 'jquery';
     import toastr from "toastr";
+    import {mapGetters} from 'vuex'
 
     export default {
         
@@ -220,21 +221,14 @@
             }
         },
         computed:{
-            loggedIn(){
-              return this.$store.getters.loggedIn;
-            },
-            userInfo(){
-              return this.$store.getters.GET_AUTH_INFO;
-            },
-            products(){
-              return this.$store.getters.cartProducts
-            },
-            cartTotalPrice(){
-              return this.$store.getters.cartTotalPrice
-            },
-            cartItemCount(){
-              return this.$store.getters.cartItem;
-            },
+          ...mapGetters([
+              'loggedIn',
+              'GET_AUTH_INFO',
+              'cartProducts',
+              'cartTotalPrice',
+              'cartItem',
+          ]),
+
         },
         mounted() {
             // this.$store.dispatch('getCartItems');
@@ -251,7 +245,7 @@
               "timeOut": 5000,
               "extendedTimeOut": 1000
             }
-            toastr.warning('Item has been removed from cart!')
+            toastr.warning('Item has been removed from orders!')
           }
         },
         created() {

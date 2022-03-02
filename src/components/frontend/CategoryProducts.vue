@@ -30,7 +30,7 @@
                     <i class="fas fa-cart-plus"></i>
                   </a>
                 </div>
-                <button class="simple-btn mt-2">add to cart</button>
+                <button class="simple-btn mt-2">add to orders</button>
               </div>
               <div class="product-item">
                 <a class="product-card-link" href="#">
@@ -43,7 +43,7 @@
                   </div>
                   <h3> Stylish Modern Analogue ladies Watch JW10 </h3>
                 </a>
-                <button class="simple-btn mt-2">add to cart</button>
+                <button class="simple-btn mt-2">add to orders</button>
               </div>
               <div class="product-item">
                 <a class="product-card-link" href="#">
@@ -64,7 +64,7 @@
                     <i class="fas fa-cart-plus"></i>
                   </a>
                 </div>
-                <button class="simple-btn mt-2">add to cart</button>
+                <button class="simple-btn mt-2">add to orders</button>
               </div>
               <div class="product-item">
                 <a class="product-card-link" href="#">
@@ -85,7 +85,7 @@
                     <i class="fas fa-cart-plus"></i>
                   </a>
                 </div>
-                <button class="simple-btn mt-2">add to cart</button>
+                <button class="simple-btn mt-2">add to orders</button>
               </div>
               <div class="product-item">
                 <a class="product-card-link" href="#">
@@ -106,7 +106,7 @@
                     <i class="fas fa-cart-plus"></i>
                   </a>
                 </div>
-                <button class="simple-btn mt-2">add to cart</button>
+                <button class="simple-btn mt-2">add to orders</button>
               </div>
               <div class="product-item">
                 <a class="product-card-link" href="#">
@@ -127,7 +127,7 @@
                     <i class="fas fa-cart-plus"></i>
                   </a>
                 </div>
-                <button class="simple-btn mt-2">add to cart</button>
+                <button class="simple-btn mt-2">add to orders</button>
               </div>
               <div class="product-item">
                 <a class="product-card-link" href="#">
@@ -148,7 +148,7 @@
                     <i class="fas fa-cart-plus"></i>
                   </a>
                 </div>
-                <button class="simple-btn mt-2">add to cart</button>
+                <button class="simple-btn mt-2">add to orders</button>
               </div>
               <div class="product-item">
                 <a class="product-card-link" href="#">
@@ -169,7 +169,7 @@
                     <i class="fas fa-cart-plus"></i>
                   </a>
                 </div>
-                <button class="simple-btn mt-2">add to cart</button>
+                <button class="simple-btn mt-2">add to orders</button>
               </div>
             </carousel>
           </div>

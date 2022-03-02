@@ -34,7 +34,7 @@
                                         <i class="fa fa-shopping-cart fs-12"></i>
                                     </button>
                                 </div>
-                                <!-- <button @click="addToCart(product)" :disabled="product.product_quantity < 1" class="simple-btn mt-2">add to cart</button> -->
+                                <!-- <button @click="addToCart(product)" :disabled="product.product_quantity < 1" class="simple-btn mt-2">add to orders</button> -->
                             </div>
                         </div>
                         <div class="mt-4 float-right">
@@ -68,7 +68,7 @@
         methods: {
             addToCart(product){
                 this.$store.dispatch('addProductToCart', product);
-                toastr.success('Product added to cart!')
+                toastr.success('Product added to orders!')
             },
             getAllProducts(page = 1){
                 axios.get('/get-all-products?page=' + page)

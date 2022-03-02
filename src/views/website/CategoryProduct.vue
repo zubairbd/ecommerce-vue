@@ -93,7 +93,7 @@ export default {
   methods: {
     addToCart(product){
       this.$store.dispatch('addProductToCart', product);
-      toastr.success('Product added to cart!')
+      toastr.success('Product added to orders!')
     },
     getCategoryProduct(page = 1){
       axios.get("/category/" + this.$route.params.category_slug + "?page=" + page ).then((response) => {

@@ -61,7 +61,7 @@ Vue.config.productionTip = false
 //   }
 // })
 
-
+import routers from "./router/website_routes";
 
 
 
@@ -76,5 +76,6 @@ new Vue({
   filter,
   Toast,
   toastr,
+  routers,
   render: h => h(App)
 }).$mount('#app')

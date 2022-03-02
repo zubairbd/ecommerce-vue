@@ -7,7 +7,6 @@ export const product = {
         product: {},
         cart: [],
 
-
     },
     getters: {
         products(state){
@@ -44,6 +43,7 @@ export const product = {
         cartItem(state, gretters){
             return gretters.cartProducts.reduce((cartTotal, product) => cartTotal + product.quantity, 0);
         },
+
 
 
     },
@@ -123,7 +123,7 @@ export const product = {
         },
         removeCartProduct(state, id){
             state.cart = state.cart.filter(product => product.id !== id)
-            // state.cart = state.cart.id !== id
+            // state.orders = state.orders.id !== id
         },
         addQty(state, id){
             const currentItem = state.cart.find((product) => product.id === id);
@@ -136,6 +136,9 @@ export const product = {
             }else {
                 state.cart = state.cart.filter(product => product.id !== id)
             }
+        },
+        removeAllCart(state){
+            state.cart = [];
         },
 
     },

@@ -106,15 +106,15 @@
         methods: {
             removeFromCart(id){
             this.$store.dispatch('removeCartProduct', id)
-            toastr.success('Item has been removed from cart!')
+            toastr.success('Item has been removed from orders!')
             },
             addQty(id){
                 this.$store.dispatch('addQty', id);
-                toastr.success('Product updated to cart!')
+                toastr.success('Product updated to orders!')
             },
             reduceQty(id){
                 this.$store.dispatch('reduceQty', id);
-                toastr.success('Product updated to cart!')
+                toastr.success('Product updated to orders!')
             },
         },
     }

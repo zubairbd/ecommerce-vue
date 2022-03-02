@@ -16,7 +16,7 @@
                       <div class="row gutters-5">
                         <div  class="col-6 col-md-4">
                           <label class="aiz-megabox d-block bg-white mb-0">
-                            <input type="radio" name="address_id" value="">
+                            <input type="radio" v-model="form.payment_type" name="address_id" value="sslcommerz">
                             <span class="d-block p-3 aiz-megabox-elem">
                             <img src="https://bongobaba.com/public/assets/img/cards/sslcommerz.png" class="img-fluid mb-2">
                             <span class="d-block text-center">
@@ -27,7 +27,7 @@
                         </div>
                         <div  class="col-6 col-md-4">
                           <label class="aiz-megabox d-block bg-white mb-0">
-                            <input type="radio" name="address_id" value="" >
+                            <input type="radio" v-model="form.payment_type" name="address_id" value="Nagad" >
                             <span class="d-block p-3 aiz-megabox-elem">
                             <img src="https://bongobaba.com/public/assets/img/cards/nagad.png" class="img-fluid mb-2">
                             <span class="d-block text-center">
@@ -38,7 +38,7 @@
                         </div>
                         <div  class="col-6 col-md-4">
                           <label class="aiz-megabox d-block bg-white mb-0">
-                            <input type="radio" name="address_id" value="">
+                            <input type="radio" v-model="form.payment_type" name="address_id" value="Cash">
                             <span class="d-block p-3 aiz-megabox-elem">
                             <img src="https://bongobaba.com/public/assets/img/cards/cod.png" class="img-fluid mb-2">
                             <span class="d-block text-center">
@@ -68,7 +68,7 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr v-for="item in products" :key="item.id">
+                      <tr v-for="item in cartProducts" :key="item.id">
                         <td>
                           {{item.product.product_name}}
                           <strong class="product-quantity">
@@ -84,7 +84,7 @@
                   <table class="table">
 
                     <tfoot>
-                      <tr>
+                      <tr class="cart-subtotal">
                         <th>Subtotal</th>
                         <td class="text-right">৳{{cartTotalPrice}}.00</td>
                       </tr>
@@ -99,14 +99,13 @@
                       <tr>
                         <th>Total</th>
                         <td class="text-right">৳{{cartTotalPrice + deliveryCharge}}.00</td>
-                        <td class="text-right"><input type="text" :v-model="form.total" :value="cartTotalPrice + deliveryCharge"></td>
-                        
+
                       </tr>
                     </tfoot>
                   </table>
                   <div class="mt-3">
                     <form class="" id="apply-coupon-form" enctype="multipart/form-data">
-                      <input type="hidden" name="_token" value="SjgkU0balPFsVZOuiigrk5wKKIbrzPDaJpti7poM">                        <input type="hidden" name="owner_id" value="9">
+                      <input type="hidden" name="_token" value="SjgkU0balPFsVZOuiigrk5wKKIbrzPDaJpti7poM">   <input type="hidden" name="owner_id" value="9">
                       <div class="input-group">
                         <input type="text" class="form-control" name="code" onkeydown="return event.key != 'Enter';" placeholder="Have coupon code? Enter here" required="">
                         <div class="input-group-append">
@@ -116,7 +115,6 @@
                     </form>
                   </div>
                 </div>
-                <input type="text" v-model="form.subtotal" name="subtotal" id="subtotal">
                 <div class="card-footer">
                   <button type="submit" class="btn btn-primary justify-content-end"> Order Completed</button>
                 </div>
@@ -133,55 +131,38 @@
 <script>
 import Shipping from "../../components/frontend/Shipping";
 import Load from "../../components/frontend/Load";
-import axios from 'axios';
-import toastr from 'toastr';
+import {mapGetters, mapActions, mapMutations} from 'vuex'
 export default {
   name: "Checkout",
   components:{Shipping, Load},
   data(){
     return{
       form: {
-        total: this.cartTotalPrice || null,
-        subtotal: 'hellom',
-        address: this.addressId
+        payment_type: null,
       },
     }
   },
   mounted() {
-    // setTimeout(() => {this.loadingStatus = false}, 2000),
 
   },
+
   computed:{
-    loadingStatus(){
-      return this.$store.getters.loadingStatus
-    },
-    products(){
-      return this.$store.getters.cartProducts
-    },
-    cartTotalPrice(){
-      return this.$store.getters.cartTotalPrice
-    },
-    cartItemCount(){
-      return this.$store.getters.cartItem;
-    },
-    deliveryCharge(){
-      return this.$store.getters.deliveryCharge;
-    },
-    addressId(){
-      return this.$store.getters.addressId
-    }
+    ...mapGetters(['loadingStatus', 'cartProducts', 'cartTotalPrice', 'cartItem', 'deliveryCharge', 'addressId'])
   },
   methods: {
+    ...mapActions([
+        'orderStore'
+    ]),
+    ...mapMutations(['removeAllCart']),
+
     orderCompleted(){
-      axios.post('/order-completed', this.form)
-      .then((res) =>{
-          toastr.success(res.data.message)
-        })
-        .catch((error) =>{
-           for (const [, v] of Object.entries(error.response.data.errors)){
-             toastr.error(v)
-           }
-        })
+      let chekoutInfo ={
+        cart : this.cartProducts,
+        address_id : this.addressId,
+        total : this.cartTotalPrice,
+        payment_type : this.form.payment_type,
+      }
+      this.orderStore(chekoutInfo);
     },
     // initForm() {
     //   return {

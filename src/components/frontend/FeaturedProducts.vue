@@ -31,7 +31,7 @@
                   <h3> {{product.product_name}} - {{product.product_quantity}} </h3>
                 </router-link>
 
-                <button @click="addToCart(product)" :disabled="product.product_quantity < 1" class="simple-btn mt-2">add to cart</button>
+                <button @click="addToCart(product)" :disabled="product.product_quantity < 1" class="simple-btn mt-2">add to orders</button>
               </div>
             </carousel>
           </div>
@@ -78,7 +78,7 @@ export default {
         "timeOut": 5000,
         "extendedTimeOut": 1000
       }
-      toastr.success('Product added to cart!')
+      toastr.success('Product added to orders!')
     },
 
   }

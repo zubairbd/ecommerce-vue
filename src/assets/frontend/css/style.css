@@ -850,3 +850,52 @@ input.col.border-0.text-center.flex-grow-1.fs-16.input-number {
     transition-delay: 0.1s;
     -webkit-transition-delay: 0.1s;
 }
+
+/**** Frontend User ***/
+.side-nav-icon {
+	width: 28px;
+	font-size: 16px;
+}
+
+.user-active{
+	text-decoration: none !important;
+	background: var(--primary);
+}
+
+.kz-table.footable, .kz-table.footable-details {
+	opacity: 1;
+	height: auto;
+}
+/*Purchase History*/
+.kz-table thead th {
+	border-top: 0;
+	border-bottom: 2px solid #eceff7 !important;
+}
+.kz-table.footable > tbody > tr.footable-empty > td {
+	font-size: 20px;
+	position: relative;
+	padding-top: 100px;
+}
+table.footable > tbody > tr.footable-empty > td {
+	vertical-align: middle;
+	text-align: center;
+	font-size: 30px;
+	border-bottom: 0;
+}
+.kz-table td, .aiz-table th {
+	border-top: 1px solid #eceff7;
+}
+.kz-table td, .aiz-table th {
+	padding: 1rem 0.75rem;
+}
+.kz-table.footable > tbody > tr.footable-empty > td::before {
+	content: "\f119";
+	font-family: "Line Awesome Free";
+	font-weight: 900;
+	position: absolute;
+	left: 50%;
+	top: 20px;
+	font-size: 60px;
+	opacity: 0.5;
+	transform: translate(-50%, 0px);
+}
