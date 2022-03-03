@@ -1,11 +1,15 @@
 import axios from 'axios'
 export const orders = {
     state: {
-        orders:{}
+        orders:{},
+        orderitem:{}
     },
     getters: {
         getOrders(state){
             return state.orders;
+        },
+        orderItems(state){
+            return state.orderitem;
         }
 
     },
@@ -16,12 +20,22 @@ export const orders = {
                     context.commit('orderData', res.data.data)
                     console.log(res.data.data)
                 })
+        },
+        orderDetails(context, invoice_no){
+            axios.get('/order-details/' + invoice_no)
+                .then((res) =>{
+                    console.log(res.data)
+                    context.commit('orderItems', res.data.data)
+                })
         }
 
     },
     mutations: {
         orderData(state, getOrders){
             return state.orders = getOrders;
+        },
+        orderItems(state, orderItem){
+            return state.orderitem = orderItem
         }
 
     },

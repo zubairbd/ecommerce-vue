@@ -20,7 +20,7 @@
             <div class="col-lg-9">
               <div class="card">
                 <div class="card-header">
-                  <h5 class="mb-0 h6">Purchase History</h5>
+                  <h5 class="mb-0 h6">Order Details</h5>
                 </div>
                 <div class="card-body">
                   <table class="table kz-table mb-0 footable footable-1 breakpoint-lg" style="">
@@ -28,23 +28,23 @@
                     <tr class="footable-header">
 
                       <th style="display: table-cell;">Product</th>
-                      <th style="display: table-cell;">Date</th>
-                      <th style="display: table-cell;">Status</th>
                       <th style="display: table-cell;">Total</th>
-                      <th style="display: table-cell;" width="20%">Actions</th>
                     </tr>
                     </thead>
                     <tbody>
-                      <tr v-for="order in getOrders" :key="order.id" class="">
-                        <td>#{{ order.invoice_no }}</td>
-                        <td>{{ order.created_at | formatDate }}</td>
-                        <td>{{orderStatus(order.status)}}</td>
-                        <td>{{order.total}}</td>
-                        <td><router-link :to="`/purchase-details/${order.invoice_no}`" class="btn btn-warning btn-sm">View</router-link> </td>
-                      </tr>
-
-                      <tr v-if="!getOrders" class="footable-empty"><td colspan="2">Nothing found</td></tr>
+                    <tr v-for="orderitem in orderItems.orderitems" :key="orderitem.id" class="">
+                      <td>{{orderitem}}</td>
+<!--                      <td>{{ orderitem.product.product_name }} <span class="fw-bold">x {{orderitem.product_qty}}</span></td>-->
+<!--                      <td v-if="orderitem.product.discount == null">{{ orderitem.product.price * orderitem.product_qty}} </td>-->
+<!--                      <td v-if="orderitem.product.discount !== null">{{ orderitem.product.discount * orderitem.product_qty}} </td>-->
+                    </tr>
                     </tbody>
+                    <tfoot>
+                    <tr class="cart-subtotal">
+                      <th>Subtotal</th>
+                      <td class="text-rights">৳{{orderItems.total}}.00</td>
+                    </tr>
+                    </tfoot>
                   </table>
                 </div>
               </div>
@@ -58,26 +58,26 @@
 
 <script>
 import UserSidebar from "../../../components/frontend/UserSidebar";
-import {mapGetters, mapActions} from 'vuex'
+import {mapGetters} from "vuex";
 export default {
-  name: "PurchaseHistory",
-  components: {UserSidebar},
+  name: "OrderDetails",
+  components:{UserSidebar},
+  mounted() {
+    this.$store.dispatch('orderDetails', this.$route.params.invoice_no)
+  },
   computed:{
     ...mapGetters([
-        'getOrders'
+      'orderItems'
     ]),
-  },
-  mounted() {
-    this.getOrdersUser();
   },
   methods:{
-    ...mapActions([
-      'getOrdersUser',
-    ]),
+
   }
 }
 </script>
 
 <style scoped>
-
+.table > :not(:first-child) {
+  border-top: 0;
+}
 </style>

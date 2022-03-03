@@ -1,4 +1,5 @@
 import Vue from "vue";
+import moment from 'moment';
 
 export default Vue.mixin({
     methods: {
@@ -34,6 +35,10 @@ export default Vue.mixin({
             let data = {0: "Inactive", 1: "Active"}
             return data[status];
         },
+        orderStatus: function (status) {
+            let data = {0: "Pending", 1: "Processing", 2: "Placed", 3: "Shipped", 4: "Delivered"}
+            return data[status];
+        },
         statusColor: function (status) {
             let data = {0: "bg-danger", 1: "bg-success"}
             return data[status];
@@ -43,5 +48,13 @@ export default Vue.mixin({
                 this.loadingStatus = false
             }, 500)
         }
+    },
+
+});
+
+// Date Format
+Vue.filter('formatDate', function(value) {
+    if (value) {
+        return moment(String(value)).format('MMMM DD, YYYY')
     }
 });

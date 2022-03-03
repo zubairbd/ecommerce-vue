@@ -25,6 +25,7 @@ import Brands from "../views/website/Brands";
 import Checkout from "../views/website/Checkout";
 import Dashboard from "../views/website/user/Dashboard";
 import PurchaseHistory from "../views/website/user/PurchaseHistory";
+import OrderDetails from "../views/website/user/OrderDetails";
 
 
 Vue.use(VueRouter)
@@ -107,6 +108,13 @@ const routes = [
         path: '/purchase-history',
         name: 'purchase',
         component: PurchaseHistory,
+        meta:{
+        }
+      },
+      {
+        path: '/purchase-details/:invoice_no',
+        name: 'purchase-details',
+        component: OrderDetails,
         meta:{
         }
       },
