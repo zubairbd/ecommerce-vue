@@ -24,7 +24,6 @@ export const orders = {
         orderDetails(context, invoice_no){
             axios.get('/order-details/' + invoice_no)
                 .then((res) =>{
-                    console.log(res.data)
                     context.commit('orderItems', res.data.data)
                 })
         }

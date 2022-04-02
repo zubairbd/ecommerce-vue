@@ -32,9 +32,10 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr v-for="orderitem in orderItems.orderitems" :key="orderitem.id" class="">
-                      <td>{{orderitem.product_id}}<span class="fw-bold">x {{orderitem.product_qty}}</span></td>
-                      <td>{{ orderitem.product }} </td>
+                    <tr v-for="orderitem in orderItems" :key="orderitem.id" class="">
+                      <td>{{ orderitem.product.product_name }} | {{orderitem.product_id}}<span class="fw-bold">x {{orderitem.product_qty}}</span></td>
+                      <td v-if="orderitem.product.discount !== null">{{orderitem.product_qty * orderitem.product.discount }} </td>
+                      <td v-if="orderitem.product.discount == null">{{ orderitem.product.price }} </td>
 <!--                      <td v-if="orderitem.product.discount == null">{{ orderitem.product.price * orderitem.product_qty}} </td>-->
 <!--                      <td v-if="orderitem.product.discount !== null">{{ orderitem.product.discount * orderitem.product_qty}} </td>-->
                     </tr>
@@ -42,19 +43,19 @@
                     <tfoot>
                     <tr class="cart-subtotal">
                       <th>Subtotal</th>
-                      <td class="text-rights">৳{{orderItems.total}}.00</td>
+                      <td class="text-rights">৳{{orderdetail.total}}.00</td>
                     </tr>
                     <tr class="cart-subtotal">
                       <th>Shipping</th>
-                      <td class="text-rights">৳{{orderItems.total}}.00</td>
+                      <td class="text-rights">৳{{orderdetail.total}}.00</td>
                     </tr>
                     <tr class="cart-subtotal">
                       <th>Payment Method</th>
-                      <td class="text-rights">{{orderItems.payment_type}}</td>
+                      <td class="text-rights">{{orderdetail.payment_type}}</td>
                     </tr>
                     <tr class="cart-subtotal">
                       <th>Total</th>
-                      <td class="text-rights">৳{{orderItems.total}}.00</td>
+                      <td class="text-rights">৳{{orderdetail.total}}.00</td>
                     </tr>
                     </tfoot>
                   </table>
@@ -71,11 +72,21 @@
 <script>
 import UserSidebar from "../../../components/frontend/UserSidebar";
 import {mapGetters} from "vuex";
+import axios from "axios";
 export default {
   name: "OrderDetails",
   components:{UserSidebar},
+  data(){
+    return{
+      orderdetail:{}
+    }
+  },
   mounted() {
     this.$store.dispatch('orderDetails', this.$route.params.invoice_no)
+
+  },
+  created() {
+    this.OrderDetail();
   },
   computed:{
     ...mapGetters([
@@ -83,7 +94,14 @@ export default {
     ]),
   },
   methods:{
-
+    OrderDetail(){
+      axios.get('/order-detail/' + this.$route.params.invoice_no)
+          .then((res) =>{
+            // this.orderdetail = res.data.data)
+            console.log(res.data.data)
+            this.orderdetail = res.data.data
+          })
+    }
   }
 }
 </script>
